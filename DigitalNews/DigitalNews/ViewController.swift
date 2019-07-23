@@ -12,7 +12,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Somente Teste
+        let api = ApiManager()
+        api.getNews { (sucess, error) in
+            if error != nil {
+                print("Deu Ruim")
+            }else {
+                print("UHUUUUUUUUu")
+            }
+        }
     }
 
 
