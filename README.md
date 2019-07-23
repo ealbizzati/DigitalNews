@@ -1,22 +1,18 @@
 # Digital News
-> DigitalNews is a Project from Digital House
+<table>
+<tr>
+<td>
+  > DigitalNews is a Project from Digital House
+</td>
+</tr>
+</table>
 
 ## Table of contents
 * [General info](#general-info)
 * [Screenshots](#screenshots)
-* [Technologies](#technologies)
 * [Setup](#setup)
-* [Features](#features)
-* [Status](#status)
-* [Inspiration](#inspiration)
-* [Contact](#contact)
-
-## Team
-
-* Giuliano
-* Paulo
-* Alessandra
-* Euclides
+* [Team](#team)
+* [License](#license)
 
 ## General info
 Add more general information about project. What the purpose of the project is? Motivation?
@@ -24,33 +20,18 @@ Add more general information about project. What the purpose of the project is? 
 ## Screenshots
 ![Example screenshot](./img/screenshot.png)
 
-## Technologies
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
-
 ## Setup
-Describe how to install / setup your local environement / add link to demo version.
+Clone this repo to your desktop and run DigitalNews.xcworkspace
 
-## Code Examples
-Show examples of usage:
-`put-your-code-here`
+## Team
 
-## Features
-List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+[![Giuliano](https://avatars1.githubusercontent.com/u/45433850?s=460&v=4)](https://github.com/giulianoaccorsi)  | [![Paulo](https://avatars2.githubusercontent.com/u/10238114?s=460&v=4)](https://github.com/paulopr4)
+---|---
+[Giuliano](https://github.com/giulianoaccorsi) |[Paulo](https://github.com/paulopr4)
 
-To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
-
-## Status
-Project is: _in progress_, _finished_, _no longer continue_ and why?
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
 
-## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+
+
