@@ -25,7 +25,7 @@ Clone this repo to your desktop and run DigitalNews.xcworkspace
 
 ## Team
 
-[![Giuliano](https://avatars1.githubusercontent.com/u/45433850?s=460&v=4)](https://github.com/giulianoaccorsi)  | [![Paulo](https://avatars2.githubusercontent.com/u/10238114?s=460&v=4)](https://github.com/paulopr4)
+[![Giuliano](https://avatars1.githubusercontent.com/u/45433850?s=144&v=4)](https://github.com/giulianoaccorsi)  | [![Paulo](https://avatars2.githubusercontent.com/u/10238114?s=144&v=4)](https://github.com/paulopr4)
 ---|---
 [Giuliano](https://github.com/giulianoaccorsi) |[Paulo](https://github.com/paulopr4)
 
