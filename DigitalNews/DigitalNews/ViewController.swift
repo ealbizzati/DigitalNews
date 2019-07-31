@@ -12,6 +12,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let locale = Locale.current
+        print(locale.regionCode?.lowercased())
+        
+        
         // Somente Teste
         let api = ApiManager()
         api.getNews { (sucess, error) in
