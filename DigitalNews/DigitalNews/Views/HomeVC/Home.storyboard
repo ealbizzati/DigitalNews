@@ -17,15 +17,25 @@
                     <view key="view" contentMode="scaleToFill" id="I1n-Vf-zGE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hKN-VL-LWa">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="1i9-od-peS"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="homeViewBorda" selectedImage="homeFilled" id="aEf-mF-Gp7"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="hKN-VL-LWa" id="Fqh-4x-Ae8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Kh-1Q-cJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="475" y="-934"/>
+            <point key="canvasLocation" x="473.91304347826093" y="-934.15178571428567"/>
         </scene>
     </scenes>
     <resources>
