@@ -36,14 +36,13 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? NewsCell else {
             return UITableViewCell()
         }
         cell.setupCell(article: (controller?.getArticle(index: indexPath.row))!)
         return cell
     }
-    
+
     
 }
 
