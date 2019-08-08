@@ -1,16 +1,21 @@
 //
-//  StyleView.swift
+//  Shadow.swift
 //  DigitalNews
 //
-//  Created by Giuliano Accorsi on 06/08/19.
+//  Created by Giuliano Accorsi on 08/08/19.
 //  Copyright © 2019 Giuliano Accorsi. All rights reserved.
 //
 
 import UIKit
 
-@IBDesignable
-class StyleView: UIView {
+@IBDesignable class ShadowView: UIView {
     
+    @IBInspectable
+    var cornerRadius: CGFloat = 0.0 {
+        didSet {
+            layer.cornerRadius = cornerRadius
+        }
+    }
     
     @IBInspectable var shadowColor: UIColor? {
         get {
@@ -65,31 +70,6 @@ class StyleView: UIView {
                 let rect = bounds.insetBy(dx: dx, dy: dx)
                 layer.shadowPath = UIBezierPath(rect: rect).cgPath
             }
-        }
-    }
-    
-    @IBInspectable
-    var cornerRadius: CGFloat = 0.0 {
-        didSet {
-            layer.cornerRadius = cornerRadius
-        }
-    }
-    @IBInspectable
-    var borderColor: UIColor = .white {
-        didSet {
-            layer.borderColor = borderColor.cgColor
-        }
-    }
-    @IBInspectable
-    var borderWidth: CGFloat = 0.0 {
-        didSet {
-            layer.borderWidth = borderWidth
-        }
-    }
-    @IBInspectable
-    var shadowRadius: CGFloat = 0.0 {
-        didSet {
-            layer.shadowRadius = shadowRadius
         }
     }
 }

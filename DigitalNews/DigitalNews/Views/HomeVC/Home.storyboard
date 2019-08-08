@@ -42,6 +42,14 @@
             </objects>
             <point key="canvasLocation" x="473.91304347826093" y="-934.15178571428567"/>
         </scene>
+        <!--DetailVC-->
+        <scene sceneID="K8n-uc-B10">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DetailVC" storyboardName="Detail" referencedIdentifier="DetailVC" id="uxd-Wy-jJe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X8d-sg-4CH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1270" y="-934"/>
+        </scene>
     </scenes>
     <resources>
         <image name="homeFilled" width="50" height="50"/>

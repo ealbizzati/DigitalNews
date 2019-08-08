@@ -24,9 +24,10 @@ class NewsCell: UITableViewCell {
     }
     
     func setupCell(article: Article) {
+        let titulo = article.title?.components(separatedBy: "-")[0]
         imageNews.sd_setImage(with: URL(string: article.urlToImage ?? ""))
         labelSource.text = article.source?.name
-        labelTitulo.text = article.title
+        labelTitulo.text = titulo
         labelDescription.text = article.articleDescription
     }
     

@@ -38,4 +38,5 @@ class HomeController {
         return arrayNews[index]
     }
 
+
 }
