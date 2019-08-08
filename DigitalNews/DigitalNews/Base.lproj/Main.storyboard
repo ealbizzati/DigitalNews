@@ -15,14 +15,16 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="f6C-Q8-7f6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6hy-5M-zKf">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="1" green="0.58045899868011475" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="raR-Yr-rZA" kind="relationship" relationship="viewControllers" id="oq0-Jr-aPY"/>
-                        <segue destination="igh-wl-YZy" kind="relationship" relationship="viewControllers" id="OCZ-zc-XhL"/>
-                        <segue destination="2AW-ru-rdA" kind="relationship" relationship="viewControllers" id="EHj-Fk-WJe"/>
                         <segue destination="Gt2-Ca-wdL" kind="relationship" relationship="viewControllers" id="2yD-3f-VUl"/>
+                        <segue destination="2AW-ru-rdA" kind="relationship" relationship="viewControllers" id="EHj-Fk-WJe"/>
+                        <segue destination="igh-wl-YZy" kind="relationship" relationship="viewControllers" id="OCZ-zc-XhL"/>
+                        <segue destination="raR-Yr-rZA" kind="relationship" relationship="viewControllers" id="oq0-Jr-aPY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EhT-cA-55n" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -43,7 +45,7 @@
         <scene sceneID="SdG-74-hfR">
             <objects>
                 <viewControllerPlaceholder storyboardName="Search" id="igh-wl-YZy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ZHR-cG-xRD"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="searchFilled" id="ZHR-cG-xRD"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JW0-Rb-Dho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,7 +55,7 @@
         <scene sceneID="qOs-f4-X9p">
             <objects>
                 <viewControllerPlaceholder storyboardName="FavoriteView" id="2AW-ru-rdA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="YUL-xg-syl"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="like" selectedImage="likeFilled" id="YUL-xg-syl"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qAE-Qc-b16" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,11 +65,18 @@
         <scene sceneID="72J-M8-A6R">
             <objects>
                 <viewControllerPlaceholder storyboardName="Home" id="Gt2-Ca-wdL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="yzD-f1-1LP"/>
+                    <tabBarItem key="tabBarItem" title="" image="homeViewBorda" selectedImage="homeFilled" id="yzD-f1-1LP"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ME6-Ta-ayB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="235" y="-691"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="homeFilled" width="50" height="50"/>
+        <image name="homeViewBorda" width="50" height="50"/>
+        <image name="like" width="50" height="50"/>
+        <image name="likeFilled" width="50" height="50"/>
+        <image name="searchFilled" width="50" height="50"/>
+    </resources>
 </document>

@@ -10,9 +10,9 @@ import Foundation
 import Alamofire
 
 class ApiManager {
-     typealias completion <T> = (_ result: T, _ failure: NSError?) -> Void
+     typealias completion <T> = (_ result: T, _ failure: Bool) -> Void
     
-    func getNews(completion: @escaping completion<NewsAPI?>) {
+    func getNews(completion: @escaping completion<[Article]?>) {
         let url = API.baseURL + API.topheadlines
         let parameters: Parameters = ["country":"br",
                                       "page":1,
@@ -22,15 +22,19 @@ class ApiManager {
             if response.response?.statusCode == 200 {
                 print("Deu Certo ApiManager - getNews()\n\(String(describing: response.result.value))")
                 guard let data = response.data else {
-                    completion(nil,NSError())
+                    completion(nil,false)
                     return
                 }
                 do {
                     let result = try JSONDecoder().decode(NewsAPI.self, from: data)
-                    completion(result,nil)
+                    completion(result.articles,true)
                 }catch {
                     print("Error - JSONDecoder() - ApiManager - getNews()")
+                    completion(nil,false)
                 }
+            }else {
+                print("Não deu 200 :c - ApiManager = getNews()")
+                completion(nil,false)
             }
         }
     }
