@@ -1,17 +1,18 @@
 //
-//  ConfigurationVC.swift
+//  LocalVC.swift
 //  DigitalNews
 //
-//  Created by Giuliano Accorsi on 06/08/19.
+//  Created by Giuliano Accorsi on 13/08/19.
 //  Copyright © 2019 Giuliano Accorsi. All rights reserved.
 //
 
 import UIKit
 
-class ConfigurationVC: UIViewController {
+class LocalVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
 
 }

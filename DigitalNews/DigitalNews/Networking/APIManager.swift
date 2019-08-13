@@ -28,13 +28,48 @@ class ApiManager {
                 do {
                     let result = try JSONDecoder().decode(NewsAPI.self, from: data)
                     completion(result.articles,true)
+                    return
                 }catch {
                     print("Error - JSONDecoder() - ApiManager - getNews()")
                     completion(nil,false)
+                    return
                 }
             }else {
-                print("Não deu 200 :c - ApiManager = getNews()")
+                print("Não deu 200 :c - ApiManager - getNews()")
                 completion(nil,false)
+                return
+            }
+        }
+    }
+    
+    
+    func loadMoreNews(page: Int, completion: @escaping completion<[Article]?>) {
+        let url = API.baseURL + API.topheadlines
+        let parameters: Parameters = ["country":"br",
+                                      "page":page,
+                                      "apiKey":API.apiKey]
+        
+        Alamofire.request(url, method: .get, parameters: parameters).responseJSON { (response) in
+            if response.response?.statusCode == 200 {
+                 print("Deu Certo ApiManager - loadMoreNews()\n\(String(describing: response.result.value))")
+                guard let data = response.data else {
+                    completion(nil,false)
+                    return
+                }
+                
+                do {
+                    let result = try JSONDecoder().decode(NewsAPI.self, from: data)
+                    completion(result.articles, true)
+                    return
+                }catch {
+                    print("Error - JSONDecoder() - ApiManager - loadMoreNews()")
+                    completion(nil,false)
+                    return
+                }
+            }else {
+                print("Não deu 200 :c - APIManager - loadMoreNews()")
+                completion(nil,false)
+                return
             }
         }
     }

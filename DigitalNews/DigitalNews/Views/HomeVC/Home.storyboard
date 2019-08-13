@@ -22,19 +22,25 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="aL5-hX-Ac8">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hKN-VL-LWa" firstAttribute="bottom" secondItem="1i9-od-peS" secondAttribute="bottom" id="4wO-xv-bnU"/>
+                            <constraint firstItem="aL5-hX-Ac8" firstAttribute="centerY" secondItem="I1n-Vf-zGE" secondAttribute="centerY" id="Ei8-Cz-EjA"/>
                             <constraint firstItem="hKN-VL-LWa" firstAttribute="leading" secondItem="1i9-od-peS" secondAttribute="leading" id="QSN-pw-rfr"/>
                             <constraint firstItem="hKN-VL-LWa" firstAttribute="top" secondItem="1i9-od-peS" secondAttribute="top" id="fiw-K8-bZn"/>
+                            <constraint firstItem="aL5-hX-Ac8" firstAttribute="centerX" secondItem="I1n-Vf-zGE" secondAttribute="centerX" id="qog-33-SZJ"/>
                             <constraint firstItem="hKN-VL-LWa" firstAttribute="trailing" secondItem="1i9-od-peS" secondAttribute="trailing" id="rkj-Pm-qsN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1i9-od-peS"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="homeViewBorda" selectedImage="homeFilled" id="aEf-mF-Gp7"/>
+                    <tabBarItem key="tabBarItem" title="" image="news" selectedImage="filled" id="aEf-mF-Gp7"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="spinner" destination="aL5-hX-Ac8" id="zHR-83-0lJ"/>
                         <outlet property="tableView" destination="hKN-VL-LWa" id="Fqh-4x-Ae8"/>
                     </connections>
                 </viewController>
@@ -52,7 +58,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="homeFilled" width="50" height="50"/>
-        <image name="homeViewBorda" width="50" height="50"/>
+        <image name="filled" width="25" height="25"/>
+        <image name="news" width="25" height="25"/>
     </resources>
 </document>

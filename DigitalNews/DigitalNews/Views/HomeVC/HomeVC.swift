@@ -11,19 +11,34 @@ import UIKit
 class HomeVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var controller: HomeController?
+    var controller: NewsController?
+    var refreshControl:UIRefreshControl = UIRefreshControl()
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        controller = HomeController()
+        
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+        self.refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        self.spinner.startAnimating()
+        self.spinner.isHidden = false
+        
+        
+        controller = NewsController()
         controller?.delegate = self
-        controller?.loadNews()
         
         tableView.delegate = self
         tableView.dataSource = self
-        
         tableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
+        tableView.addSubview(refreshControl )
         
+        controller?.getNews()
+        
+    }
+    
+    @objc func refresh(sender: AnyObject) {
+        self.controller?.getNews()
     }
 
 
@@ -64,16 +79,32 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         self.present(viewController, animated: true)
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let tagertContentOffSet = (tableView.contentSize.height - tableView.frame.height)
+        print(scrollView.contentOffset.y)
+        print(tagertContentOffSet)
+        if scrollView.contentOffset.y * 2 > tagertContentOffSet {
+            controller?.loadMoreNews()
+        }
+    }
+
 }
 
-extension HomeVC: HomeControllerDelegate {
-    func loadDetailNews() {
+extension HomeVC: NewsControllerDelegate {
+    func didFinishRequest() {
+        self.tableView.reloadData()
+    }
+    
+    func finishRefresh() {
+        self.spinner.stopAnimating()
+        self.spinner.isHidden = true
+        self.refreshControl.endRefreshing()
+        self.tableView.reloadData()
+        self.tableView.isHidden = false
         
     }
     
-    func loadNews() {
-        self.tableView.reloadData()
-    }
     
     
 }

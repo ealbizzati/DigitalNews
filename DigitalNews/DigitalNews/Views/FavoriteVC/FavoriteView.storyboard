@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ypu-z3-CGK"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="like3" selectedImage="like2" id="zGE-m6-lL7"/>
+                    <tabBarItem key="tabBarItem" title="" image="like" selectedImage="likeFilled" id="zGE-m6-lL7"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XHn-Ro-kxA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -29,7 +29,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="like2" width="50" height="50"/>
-        <image name="like3" width="50" height="50"/>
+        <image name="like" width="25" height="25"/>
+        <image name="likeFilled" width="25" height="25"/>
     </resources>
 </document>

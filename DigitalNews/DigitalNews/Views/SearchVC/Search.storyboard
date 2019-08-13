@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="SPW-ob-KvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="searchIcon" selectedImage="searchFilled" id="Yoj-wl-lT0"/>
+                    <tabBarItem key="tabBarItem" title="" image="search" selectedImage="searchFilled" id="Yoj-wl-lT0"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPb-oC-C1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -29,7 +29,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="searchFilled" width="50" height="50"/>
-        <image name="searchIcon" width="50" height="50"/>
+        <image name="search" width="25" height="25"/>
+        <image name="searchFilled" width="25" height="25"/>
     </resources>
 </document>
