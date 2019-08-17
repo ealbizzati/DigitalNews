@@ -17,7 +17,29 @@
                     <view key="view" contentMode="scaleToFill" id="he7-eh-Adg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="pN6-kP-ZLC">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="YFc-9X-nab"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e4o-Lg-8XR">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="e4o-Lg-8XR" firstAttribute="bottom" secondItem="SPW-ob-KvY" secondAttribute="bottom" id="14G-pt-r74"/>
+                            <constraint firstItem="pN6-kP-ZLC" firstAttribute="top" secondItem="SPW-ob-KvY" secondAttribute="top" id="1lV-oV-WYE"/>
+                            <constraint firstItem="e4o-Lg-8XR" firstAttribute="top" secondItem="pN6-kP-ZLC" secondAttribute="bottom" id="2SS-vK-Mdg"/>
+                            <constraint firstItem="pN6-kP-ZLC" firstAttribute="leading" secondItem="SPW-ob-KvY" secondAttribute="leading" id="JI9-tb-oBr"/>
+                            <constraint firstItem="e4o-Lg-8XR" firstAttribute="trailing" secondItem="SPW-ob-KvY" secondAttribute="trailing" id="W4W-hf-neQ"/>
+                            <constraint firstItem="pN6-kP-ZLC" firstAttribute="trailing" secondItem="SPW-ob-KvY" secondAttribute="trailing" id="pUn-R2-MX5"/>
+                            <constraint firstItem="e4o-Lg-8XR" firstAttribute="leading" secondItem="SPW-ob-KvY" secondAttribute="leading" id="r3v-a8-Ibk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SPW-ob-KvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="search" selectedImage="searchFilled" id="Yoj-wl-lT0"/>
@@ -25,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPb-oC-C1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="849" y="-577"/>
+            <point key="canvasLocation" x="847.82608695652175" y="-577.23214285714278"/>
         </scene>
     </scenes>
     <resources>

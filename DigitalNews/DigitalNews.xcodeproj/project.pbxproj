@@ -51,6 +51,7 @@
 		19C658BD2306521D0007A9D2 /* CollectionView - Checkmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C658BC2306521D0007A9D2 /* CollectionView - Checkmark.swift */; };
 		19C658BF23067B280007A9D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19C658BE23067B280007A9D2 /* Assets.xcassets */; };
 		3A7FD6AD793F248341C6B666 /* Pods_DigitalNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B421D8B2A1AD13337F18CCC3 /* Pods_DigitalNews.framework */; };
+		9015EBC823083CBA00F6BFD8 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9015EBC723083CBA00F6BFD8 /* SearchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,7 @@
 		19BB51CD22E7A34300438429 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		19C658BC2306521D0007A9D2 /* CollectionView - Checkmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView - Checkmark.swift"; sourceTree = "<group>"; };
 		19C658BE23067B280007A9D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9015EBC723083CBA00F6BFD8 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		B2D569F8E3B4D4B08E733FD4 /* Pods-DigitalNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DigitalNews/Pods-DigitalNews.debug.xcconfig"; sourceTree = "<group>"; };
 		B421D8B2A1AD13337F18CCC3 /* Pods_DigitalNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigitalNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB5FCCD80BC6CF9BCD85502E /* Pods-DigitalNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-DigitalNews/Pods-DigitalNews.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		1928FEFF22E7864E0045E1F9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9015EBC523083C9F00F6BFD8 /* SearchVC */,
 				1947B0F72303C95D00C149C7 /* ConfigurationVC */,
 				1990A59722FA0DC000A663B2 /* HomeVC */,
 			);
@@ -331,6 +334,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9015EBC523083C9F00F6BFD8 /* SearchVC */ = {
+			isa = PBXGroup;
+			children = (
+				9015EBC623083CA900F6BFD8 /* SearchController */,
+			);
+			path = SearchVC;
+			sourceTree = "<group>";
+		};
+		9015EBC623083CA900F6BFD8 /* SearchController */ = {
+			isa = PBXGroup;
+			children = (
+				9015EBC723083CBA00F6BFD8 /* SearchController.swift */,
+			);
+			path = SearchController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -474,6 +493,7 @@
 				1947B0F12303BA6C00C149C7 /* ReusableCell.swift in Sources */,
 				190065EC2305FCBB00F9AB8E /* CategoryCell.swift in Sources */,
 				1990A59222FA0C9F00A663B2 /* FavoriteVC.swift in Sources */,
+				9015EBC823083CBA00F6BFD8 /* SearchController.swift in Sources */,
 				1930E88B230358E100D57A33 /* ThirdPartyVC.swift in Sources */,
 				1928FF0322E7889C0045E1F9 /* API.swift in Sources */,
 				1947B0FC2303D72C00C149C7 /* UserProfileCell.swift in Sources */,
