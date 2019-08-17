@@ -44,6 +44,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="search" selectedImage="searchFilled" id="Yoj-wl-lT0"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchBar" destination="pN6-kP-ZLC" id="lOj-9h-bwb"/>
+                        <outlet property="tableView" destination="e4o-Lg-8XR" id="4FI-3i-deZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPb-oC-C1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
