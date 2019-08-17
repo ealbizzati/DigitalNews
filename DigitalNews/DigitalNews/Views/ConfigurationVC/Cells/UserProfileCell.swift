@@ -14,7 +14,11 @@ class UserProfileCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageUser.layer.cornerRadius = 60
+//        imageUser.layer.borderWidth = 1
+//        imageUser.layer.masksToBounds = false
+//        imageUser.layer.borderColor = UIColor.black.cgColor
+        imageUser.layer.cornerRadius = imageUser.frame.height/2
+//        imageUser.clipsToBounds = true
     }
 
     func setupCellUser(image: String, name: String) {

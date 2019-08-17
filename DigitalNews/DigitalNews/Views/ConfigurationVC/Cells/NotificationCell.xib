@@ -24,32 +24,40 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgx-Ob-8BA">
-                        <rect key="frame" x="16" y="12" width="39" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="2bu-be-4xb"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="NoeDisplay-Regular" family="Noe Display" pointSize="17"/>
-                        <color key="textColor" red="0.93333333330000001" green="0.47843137250000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U1n-4v-1oT">
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="U1n-4v-1oT">
                         <rect key="frame" x="255" y="6.5" width="51" height="31"/>
+                        <color key="onTintColor" red="1" green="0.49803921569999998" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
                             <action selector="switchAction:" destination="KGk-i7-Jjw" eventType="valueChanged" id="Vq5-uc-WLi"/>
                         </connections>
                     </switch>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u0O-n4-1tF">
+                        <rect key="frame" x="16" y="0.0" width="44" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="OVq-Tg-GST"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgx-Ob-8BA">
+                        <rect key="frame" x="68" y="12.5" width="179" height="19"/>
+                        <fontDescription key="fontDescription" name="NoeDisplay-Regular" family="Noe Display" pointSize="19"/>
+                        <color key="textColor" red="0.93333333330000001" green="0.47843137250000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Cgx-Ob-8BA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="2SQ-LT-tKo"/>
-                    <constraint firstItem="Cgx-Ob-8BA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="HtT-Wk-UFZ"/>
+                    <constraint firstItem="Cgx-Ob-8BA" firstAttribute="leading" secondItem="u0O-n4-1tF" secondAttribute="trailing" constant="8" id="9d6-5Q-xeA"/>
+                    <constraint firstItem="Cgx-Ob-8BA" firstAttribute="centerY" secondItem="u0O-n4-1tF" secondAttribute="centerY" id="CQ6-d6-QKE"/>
                     <constraint firstItem="U1n-4v-1oT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RwR-34-1Of"/>
-                    <constraint firstItem="U1n-4v-1oT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Cgx-Ob-8BA" secondAttribute="trailing" constant="16" id="lhF-et-9XV"/>
+                    <constraint firstItem="u0O-n4-1tF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="aCM-13-qJM"/>
+                    <constraint firstItem="U1n-4v-1oT" firstAttribute="leading" secondItem="Cgx-Ob-8BA" secondAttribute="trailing" constant="8" id="cQW-pj-Tsd"/>
+                    <constraint firstItem="u0O-n4-1tF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fj5-Ul-CGj"/>
+                    <constraint firstAttribute="bottom" secondItem="u0O-n4-1tF" secondAttribute="bottom" id="shR-G3-DY5"/>
                     <constraint firstAttribute="trailing" secondItem="U1n-4v-1oT" secondAttribute="trailing" constant="16" id="zLW-iw-gbT"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="imageCell" destination="u0O-n4-1tF" id="60v-Hf-G6i"/>
                 <outlet property="labelTexto" destination="Cgx-Ob-8BA" id="sC4-iD-eVQ"/>
                 <outlet property="switchButton" destination="U1n-4v-1oT" id="JxG-qC-ghA"/>
             </connections>

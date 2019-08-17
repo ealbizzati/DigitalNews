@@ -14,7 +14,7 @@ class ApiManager {
     
     func getNews(completion: @escaping completion<[Article]?>) {
         let url = API.baseURL + API.topheadlines
-        let parameters: Parameters = ["country":"br",
+        let parameters: Parameters = ["country":UserDefaults.standard.string(forKey: TypeUserSettings.isoCountry.rawValue) ?? "br",
                                       "page":1,
                                       "apiKey":API.apiKey]
         

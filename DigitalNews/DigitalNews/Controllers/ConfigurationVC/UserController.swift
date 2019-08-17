@@ -39,6 +39,12 @@ enum TypeCountry: String {
     case us = "Estados Unidos"
     case ve = "Venezuela"
     case za = "África do Sul"
+    
+    var countryISO: String {
+        get {
+            return String(describing: self)
+        }
+    }
 }
 
 enum TypeCategory: String {
@@ -49,13 +55,24 @@ enum TypeCategory: String {
     case science = "Ciência"
     case sports = "Esportes"
     case technology = "Tecnologia"
+    
+    var categoryISO: String {
+        get {
+            return String(describing: self)
+        }
+    }
 }
 
-class UserController {
-    var arrayCountry: [String] = [TypeCountry.ae.rawValue, TypeCountry.ar.rawValue, TypeCountry.at.rawValue, TypeCountry.bg.rawValue, TypeCountry.be.rawValue, TypeCountry.br.rawValue, TypeCountry.ca.rawValue, TypeCountry.ch.rawValue, TypeCountry.cn.rawValue, TypeCountry.co.rawValue, TypeCountry.cu.rawValue, TypeCountry.cz.rawValue, TypeCountry.de.rawValue, TypeCountry.eg.rawValue, TypeCountry.fr.rawValue, TypeCountry.gb.rawValue, TypeCountry.hk.rawValue, TypeCountry.it.rawValue, TypeCountry.jp.rawValue, TypeCountry.kr.rawValue, TypeCountry.ma.rawValue, TypeCountry.ng.rawValue, TypeCountry.nz.rawValue, TypeCountry.pl.rawValue, TypeCountry.pt.rawValue, TypeCountry.se.rawValue, TypeCountry.ua.rawValue, TypeCountry.ve.rawValue, TypeCountry.za.rawValue]
+class UserController {  
+    
+    var arrayCountry: [TypeCountry] = [TypeCountry.ae, TypeCountry.ar, TypeCountry.at, TypeCountry.bg, TypeCountry.be, TypeCountry.br, TypeCountry.ca, TypeCountry.ch, TypeCountry.cn, TypeCountry.co, TypeCountry.cu, TypeCountry.cz, TypeCountry.de, TypeCountry.eg, TypeCountry.fr, TypeCountry.gb, TypeCountry.hk, TypeCountry.it, TypeCountry.jp, TypeCountry.kr, TypeCountry.ma, TypeCountry.ng, TypeCountry.nz, TypeCountry.pl, TypeCountry.pt, TypeCountry.se, TypeCountry.ua, TypeCountry.ve, TypeCountry.za]
     
     
-    var arrayCategory:[String] = [TypeCategory.business.rawValue, TypeCategory.entertainment.rawValue, TypeCategory.general.rawValue, TypeCategory.health.rawValue, TypeCategory.science.rawValue, TypeCategory.sports.rawValue, TypeCategory.technology.rawValue]
+    var arrayCategory:[TypeCategory] = [TypeCategory.business, TypeCategory.entertainment, TypeCategory.general, TypeCategory.health, TypeCategory.science, TypeCategory.sports, TypeCategory.technology]
+    
+    func getArrayCountry(index: Int) -> TypeCountry {
+        return arrayCountry[index]
+    }
     
     
     func numberOfRowsCountry() -> Int {
@@ -63,7 +80,19 @@ class UserController {
     }
     
     func loadCountry(index: Int) -> String {
-        return arrayCountry[index]
+        return arrayCountry[index].rawValue
+    }
+    
+    func numberOfRowsCategory() -> Int {
+        return arrayCategory.count
+    }
+    
+    func loadCategoryISO(index: Int) -> String {
+        return arrayCategory[index].categoryISO
+    }
+    
+    func loadCategoryName(index: Int) -> String {
+        return arrayCategory[index].rawValue
     }
     
     

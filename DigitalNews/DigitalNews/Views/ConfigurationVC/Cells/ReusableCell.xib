@@ -24,43 +24,47 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2PL-T0-XVM">
-                        <rect key="frame" x="16" y="12" width="39" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="en5-jI-nzs"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="NoeDisplay-Regular" family="Noe Display" pointSize="17"/>
-                        <color key="textColor" red="0.93333333330000001" green="0.47843137250000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-forward" translatesAutoresizingMaskIntoConstraints="NO" id="NaC-xm-Pa8">
-                        <rect key="frame" x="282" y="12" width="22" height="20"/>
+                        <rect key="frame" x="290" y="12" width="22" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="0bS-DN-FwU"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJr-y5-R1f">
-                        <rect key="frame" x="186" y="13" width="80" height="18"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="80" id="XN8-yL-49J"/>
-                        </constraints>
+                        <rect key="frame" x="245" y="13" width="37" height="18"/>
                         <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="15"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="syV-Ed-K22">
+                        <rect key="frame" x="16" y="0.0" width="44" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="s2I-ya-L8j"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2PL-T0-XVM">
+                        <rect key="frame" x="68" y="12.5" width="43.5" height="19"/>
+                        <fontDescription key="fontDescription" name="NoeDisplay-Regular" family="Noe Display" pointSize="19"/>
+                        <color key="textColor" red="0.93333333330000001" green="0.47843137250000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="2PL-T0-XVM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="41v-rS-Rsz"/>
-                    <constraint firstItem="NaC-xm-Pa8" firstAttribute="leading" secondItem="BJr-y5-R1f" secondAttribute="trailing" constant="16" id="COX-Fz-tsC"/>
+                    <constraint firstItem="NaC-xm-Pa8" firstAttribute="leading" secondItem="BJr-y5-R1f" secondAttribute="trailing" constant="8" id="COX-Fz-tsC"/>
+                    <constraint firstItem="syV-Ed-K22" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="EYs-oM-Kbl"/>
                     <constraint firstItem="BJr-y5-R1f" firstAttribute="centerY" secondItem="NaC-xm-Pa8" secondAttribute="centerY" id="Elo-8N-2NW"/>
                     <constraint firstItem="NaC-xm-Pa8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RUL-2J-bqR"/>
-                    <constraint firstAttribute="trailing" secondItem="NaC-xm-Pa8" secondAttribute="trailing" constant="16" id="Xk9-WR-6bd"/>
-                    <constraint firstItem="2PL-T0-XVM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="igt-2h-DRD"/>
-                    <constraint firstItem="BJr-y5-R1f" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2PL-T0-XVM" secondAttribute="trailing" constant="8" id="tpp-ix-CGc"/>
+                    <constraint firstItem="2PL-T0-XVM" firstAttribute="leading" secondItem="syV-Ed-K22" secondAttribute="trailing" constant="8" id="UDg-il-kGd"/>
+                    <constraint firstAttribute="trailing" secondItem="NaC-xm-Pa8" secondAttribute="trailing" constant="8" id="Xk9-WR-6bd"/>
+                    <constraint firstItem="syV-Ed-K22" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="c9s-We-yYQ"/>
+                    <constraint firstAttribute="bottom" secondItem="syV-Ed-K22" secondAttribute="bottom" id="nZ0-vl-tPI"/>
+                    <constraint firstItem="BJr-y5-R1f" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2PL-T0-XVM" secondAttribute="trailing" constant="8" id="p30-Go-col"/>
+                    <constraint firstItem="2PL-T0-XVM" firstAttribute="centerY" secondItem="syV-Ed-K22" secondAttribute="centerY" id="znb-2x-UoC"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="imageCell" destination="syV-Ed-K22" id="o8F-BF-NGB"/>
                 <outlet property="labelTexto" destination="2PL-T0-XVM" id="6t3-QP-OIT"/>
                 <outlet property="labelTextoUserDefault" destination="BJr-y5-R1f" id="2Qc-3W-mzo"/>
             </connections>

@@ -40,6 +40,18 @@ class HomeVC: UIViewController {
     @objc func refresh(sender: AnyObject) {
         self.controller?.getNews()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.valueChanged), name: Notification.Name("UserChangedValue"), object: nil)
+    }
+    
+    @objc func valueChanged() {
+        self.tableView.isHidden = true
+        self.spinner.startAnimating()
+        self.spinner.isHidden = false
+        controller?.getNews()
+    }
 
 
 }
@@ -87,6 +99,32 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         if scrollView.contentOffset.y * 2 > tagertContentOffSet {
             controller?.loadMoreNews()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favoritarSwipe = UIContextualAction(style: .normal, title: "Favoritar") { [weak self](action, view, completionHandler) in
+            guard let self = self else {
+                return completionHandler(false)
+            }
+            // Função de favoritar
+            completionHandler(true)
+        }
+        favoritarSwipe.backgroundColor = .orange
+        favoritarSwipe.image = UIImage(named: "like")
+        return UISwipeActionsConfiguration(actions: [favoritarSwipe])
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let ShareSwipe = UIContextualAction(style: .normal, title: "Compartilhar") { [weak self](action, view, completionHandler) in
+            guard let self = self else {
+                return completionHandler(false)
+            }
+            // Função Compartilhar
+            completionHandler(true)
+        }
+        ShareSwipe.backgroundColor = UIColor(red: 0.259, green: 0.405, blue: 0.699, alpha: 1.0)
+        ShareSwipe.image = UIImage(named: "share")
+        return UISwipeActionsConfiguration(actions: [ShareSwipe])
     }
 
 }

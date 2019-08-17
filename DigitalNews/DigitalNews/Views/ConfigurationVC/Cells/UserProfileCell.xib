@@ -24,29 +24,29 @@
                 <rect key="frame" x="0.0" y="0.0" width="471" height="146.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news" translatesAutoresizingMaskIntoConstraints="NO" id="Xkv-fu-BE9">
-                        <rect key="frame" x="8" y="8" width="120" height="130.5"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fotoperfil" translatesAutoresizingMaskIntoConstraints="NO" id="Xkv-fu-BE9">
+                        <rect key="frame" x="30" y="31.5" width="84" height="84"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="120" id="J2Y-qb-c7G"/>
+                            <constraint firstAttribute="height" constant="84" id="OHM-ok-HeR"/>
+                            <constraint firstAttribute="width" constant="84" id="UQD-i6-lEo"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUW-c8-Abu">
-                        <rect key="frame" x="144" y="30" width="311" height="35"/>
+                        <rect key="frame" x="130" y="61" width="333" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="35" id="nH6-n8-7WS"/>
+                            <constraint firstAttribute="height" constant="25" id="fGJ-zt-Bhr"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="NoeDisplay-Regular" family="Noe Display" pointSize="25"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" red="1" green="0.49803921568627452" blue="0.043137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="qUW-c8-Abu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="3Jf-rs-BMg"/>
-                    <constraint firstItem="qUW-c8-Abu" firstAttribute="leading" secondItem="Xkv-fu-BE9" secondAttribute="trailing" constant="16" id="7M1-Mf-rGW"/>
-                    <constraint firstItem="Xkv-fu-BE9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="KEG-fF-Oqf"/>
-                    <constraint firstAttribute="bottom" secondItem="Xkv-fu-BE9" secondAttribute="bottom" constant="8" id="QiW-P4-SVD"/>
-                    <constraint firstAttribute="trailing" secondItem="qUW-c8-Abu" secondAttribute="trailing" constant="16" id="UHN-fm-MhV"/>
-                    <constraint firstItem="Xkv-fu-BE9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Y5V-Bg-mvj"/>
+                    <constraint firstItem="Xkv-fu-BE9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="0DK-36-HrR"/>
+                    <constraint firstAttribute="trailing" secondItem="qUW-c8-Abu" secondAttribute="trailing" constant="8" id="cTV-Ik-Boi"/>
+                    <constraint firstItem="qUW-c8-Abu" firstAttribute="centerY" secondItem="Xkv-fu-BE9" secondAttribute="centerY" id="dXg-gl-zPQ"/>
+                    <constraint firstItem="Xkv-fu-BE9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hJy-YI-ogV"/>
+                    <constraint firstItem="qUW-c8-Abu" firstAttribute="leading" secondItem="Xkv-fu-BE9" secondAttribute="trailing" constant="16" id="haa-7k-GlK"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -58,6 +58,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="news" width="25" height="25"/>
+        <image name="fotoperfil" width="634" height="632"/>
     </resources>
 </document>

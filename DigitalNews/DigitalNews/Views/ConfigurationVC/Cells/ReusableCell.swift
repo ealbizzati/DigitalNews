@@ -12,6 +12,7 @@ class ReusableCell: UITableViewCell {
 
     @IBOutlet weak var labelTexto: UILabel!
     @IBOutlet weak var labelTextoUserDefault: UILabel!
+    @IBOutlet weak var imageCell: UIImageView!
     
     
     override func awakeFromNib() {
@@ -19,12 +20,14 @@ class ReusableCell: UITableViewCell {
         
     }
     
-    func setupCell(labelTexto: String, labelUserDefault: String) {
+    func setupCell(labelTexto: String, labelUserDefault: String, image: String) {
+        self.imageCell.image = UIImage(named: image)
         self.labelTexto.text = labelTexto
         self.labelTextoUserDefault.text = labelUserDefault
     }
     
-    func setupCellWithoutLabel(stringTexto: String) {
+    func setupCellWithoutLabel(stringTexto: String, image: String) {
+        self.imageCell.image = UIImage(named: image)
         labelTextoUserDefault.text = ""
         self.labelTexto.text = stringTexto
         
