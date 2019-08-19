@@ -120,6 +120,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
                 return completionHandler(false)
             }
             // Função Compartilhar
+            let activtyController = UIActivityViewController(activityItems: [self.controller?.getArticle(index: indexPath.section).url as Any], applicationActivities: nil)
+            self.present(activtyController, animated: true)
             completionHandler(true)
         }
         ShareSwipe.backgroundColor = UIColor(red: 0.259, green: 0.405, blue: 0.699, alpha: 1.0)

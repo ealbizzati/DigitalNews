@@ -12,6 +12,8 @@ import UIKit
 enum TypeUserSettings: String {
     case country = "CountrySelected"
     case isoCountry = "ISOSelected"
+    case category = "CategoryISO"
+    case categoryIndex = "CategoryIndex"
 }
 
 protocol LocalDelegate: class {

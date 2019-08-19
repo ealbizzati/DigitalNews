@@ -13,10 +13,12 @@ class ApiManager {
      typealias completion <T> = (_ result: T, _ failure: Bool) -> Void
     
     func getNews(completion: @escaping completion<[Article]?>) {
+
         let url = API.baseURL + API.topheadlines
         let parameters: Parameters = ["country":UserDefaults.standard.string(forKey: TypeUserSettings.isoCountry.rawValue) ?? "br",
                                       "page":1,
-                                      "apiKey":API.apiKey]
+                                      "apiKey":API.apiKey,
+                                      "category":UserDefaults.standard.string(forKey: TypeUserSettings.category.rawValue) ?? "general"]
         
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON { (response) in
             if response.response?.statusCode == 200 {
@@ -45,9 +47,10 @@ class ApiManager {
     
     func loadMoreNews(page: Int, completion: @escaping completion<[Article]?>) {
         let url = API.baseURL + API.topheadlines
-        let parameters: Parameters = ["country":"br",
+        let parameters: Parameters = ["country":UserDefaults.standard.string(forKey: TypeUserSettings.isoCountry.rawValue) ?? "br",
                                       "page":page,
-                                      "apiKey":API.apiKey]
+                                      "apiKey":API.apiKey,
+                                      "category":UserDefaults.standard.string(forKey: TypeUserSettings.category.rawValue) ?? "general"]
         
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON { (response) in
             if response.response?.statusCode == 200 {

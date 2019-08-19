@@ -30,7 +30,7 @@ extension CategoryVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as? CategoryCell else {return UICollectionViewCell()}
-        let selectedCategory = UserDefaults.standard.integer(forKey: "CategoryCheck")
+        let selectedCategory = UserDefaults.standard.integer(forKey: TypeUserSettings.categoryIndex.rawValue)
         cell.setupCell(textLabel: controller?.loadCategoryName(index: indexPath.item) ?? "", isSelected: selectedCategory == indexPath.item)
         return cell
     }
@@ -38,7 +38,10 @@ extension CategoryVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
         cell.checkMark.checked = !cell.checkMark.checked
-        UserDefaults.standard.set(indexPath.item, forKey: "CategoryCheck")
+         let categoryName = controller?.loadCategoryISO(index: indexPath.item)
+        UserDefaults.standard.set(categoryName, forKey: TypeUserSettings.category.rawValue)
+        UserDefaults.standard.set(indexPath.item, forKey: TypeUserSettings.categoryIndex.rawValue)
+        NotificationCenter.default.post(name: Notification.Name("UserChangedValue"), object: nil)
         collectionView.reloadData()
     }
 }
