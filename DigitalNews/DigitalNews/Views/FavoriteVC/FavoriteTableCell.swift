@@ -7,18 +7,26 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FavoriteTableCell: UITableViewCell {
 
+    
+    @IBOutlet weak var newsImage: UIImageView!
+    @IBOutlet weak var labelTitulo: UILabel!
+    @IBOutlet weak var labelDesc: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setupCell(news: NewsSaved) {
+        
+        self.newsImage.sd_setImage(with: URL(string: news.urlToImage ?? ""))
+        self.labelTitulo.text = news.title
+        self.labelDesc.text = news.descNews
     }
     
 }

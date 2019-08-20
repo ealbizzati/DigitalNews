@@ -14,9 +14,17 @@ class HomeVC: UIViewController {
     var controller: NewsController?
     var refreshControl:UIRefreshControl = UIRefreshControl()
     
+    var viewController: FavoriteVC?=nil
+    
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let storyboard = UIStoryboard(name: "FavoriteView", bundle: nil)
+        viewController = storyboard.instantiateViewController(withIdentifier: "FavoriteVC") as? FavoriteVC
+        viewController?.addObserver()
+        
+        
         
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
         self.refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -94,8 +102,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let tagertContentOffSet = (tableView.contentSize.height - tableView.frame.height)
-        print(scrollView.contentOffset.y)
-        print(tagertContentOffSet)
         if scrollView.contentOffset.y * 2 > tagertContentOffSet {
             controller?.loadMoreNews()
         }
@@ -106,7 +112,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             guard let self = self else {
                 return completionHandler(false)
             }
-            // Função de favoritar
+            let data:[String: Article] = ["article":self.controller?.getArticle(index: indexPath.section) ?? Article(source: Source(id: "", name: ""), author: "", title: "", articleDescription: "", url: "", urlToImage: "", publishedAt: "", content: "")]
+         
+            NotificationCenter.default.post(name: Notification.Name("Favorite"), object: nil, userInfo: data)
             completionHandler(true)
         }
         favoritarSwipe.backgroundColor = .orange
