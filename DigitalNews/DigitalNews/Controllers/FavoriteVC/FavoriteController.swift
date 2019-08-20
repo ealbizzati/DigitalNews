@@ -24,7 +24,7 @@ class FavoriteController {
     func loadAllNewsSaved() {
         dataManager.loadArrayNews { (arrayNewsSaved) in
             if let arrayNewsCoreData = arrayNewsSaved {
-                arrayNewsSavedLocal.append(contentsOf: arrayNewsCoreData)
+                self.arrayNewsSavedLocal = arrayNewsCoreData
             }
         }
     }

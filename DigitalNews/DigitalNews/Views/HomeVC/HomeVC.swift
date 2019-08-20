@@ -20,11 +20,6 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let storyboard = UIStoryboard(name: "FavoriteView", bundle: nil)
-        viewController = storyboard.instantiateViewController(withIdentifier: "FavoriteVC") as? FavoriteVC
-        viewController?.addObserver()
-        
-        
         
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
         self.refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -112,9 +107,12 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             guard let self = self else {
                 return completionHandler(false)
             }
-            let data:[String: Article] = ["article":self.controller?.getArticle(index: indexPath.section) ?? Article(source: Source(id: "", name: ""), author: "", title: "", articleDescription: "", url: "", urlToImage: "", publishedAt: "", content: "")]
-         
-            NotificationCenter.default.post(name: Notification.Name("Favorite"), object: nil, userInfo: data)
+            
+            FavoriteDataProvider.shared.registerNewsSaved(article: self.controller?.getArticle(index: indexPath.section) ?? Article(source: Source(id: "", name: ""), author: "", title: "", articleDescription: "", url: "", urlToImage: "", publishedAt: "", content: ""), completion: { (success) in
+                if success {
+                    print("Deu bom ao favoritar")
+                }
+            })
             completionHandler(true)
         }
         favoritarSwipe.backgroundColor = .orange

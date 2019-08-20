@@ -9,30 +9,36 @@
 import Foundation
 class FavoriteDataProvider {
     static let shared = FavoriteDataProvider()
-    static var arraySaved:[NewsSaved] = []
-    static let dataManager = DataManager()
+     var arraySaved:[NewsSaved] = []
+     let dataManager = DataManager()
     
-    static func loadAllNewsSaved() {
+    func loadAllNewsSaved(completion: (Bool) -> Void) {
         dataManager.loadArrayNews { (arrayNewsSaved) in
             if let arrayNewsCoreData = arrayNewsSaved {
-                arraySaved.append(contentsOf: arrayNewsCoreData)
+                self.arraySaved = arrayNewsCoreData
+                completion(true)
+                return
             }
+            completion(false)
         }
     }
     
-   static func registerNewsSaved(article: Article, completion: (Bool)-> Void) {
+    func registerNewsSaved(article: Article, completion: (Bool)-> Void) {
         dataManager.registerNews(article: article, htmlString: htmlToString(article: article)) { (success) in
             if success {
-                loadAllNewsSaved()
-                completion(true)
-                print("Deu bom ao registrar")
+                loadAllNewsSaved(completion: { (success) in
+                    if success {
+                        print("Deu bom ao registrar")
+                        completion(true)
+                    }
+                })
             }else {
                 completion(false)
             }
         }
     }
     
-   static func htmlToString(article: Article) -> String {
+    func htmlToString(article: Article) -> String {
         if let url = URL(string: article.url ?? "") {
             do {
                 let contents = try String(contentsOf: url)
@@ -47,26 +53,24 @@ class FavoriteDataProvider {
         return ""
     }
     
-    static func deleteNewsSaved(index: Int, completion: (Bool) -> Void) {
+     func deleteNewsSaved(index: Int, completion: (Bool) -> Void) {
         dataManager.deleteNews(id: arraySaved[index].objectID) { (success) in
             if success {
-                loadAllNewsSaved()
                 print("Deu Bom ao Deleter")
+                completion(true)
+                return
             }
+            completion(false)
         }
     }
     
     
-    static func getArrayCount() -> Int {
+     func getArrayCount() -> Int {
         return arraySaved.count
     }
     
-    static func getArticle(index: Int) -> NewsSaved {
+     func getArticle(index: Int) -> NewsSaved {
         return arraySaved[index]
-    }
-    
-    static func cleanArray() {
-        arraySaved = []
     }
     
 }
