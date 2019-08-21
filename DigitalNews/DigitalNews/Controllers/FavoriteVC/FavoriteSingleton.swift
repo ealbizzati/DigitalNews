@@ -69,8 +69,15 @@ class FavoriteDataProvider {
         return arraySaved.count
     }
     
-     func getArticle(index: Int) -> NewsSaved {
+     func getNewsSaved(index: Int) -> String {
+        return arraySaved[index].url ?? ""
+    }
+    func loadNewsSaved(index: Int) -> NewsSaved {
         return arraySaved[index]
+    }
+    
+    func getFullArticle(index: Int) -> String {
+        return arraySaved[index].urlOriginal ?? ""
     }
     
 }

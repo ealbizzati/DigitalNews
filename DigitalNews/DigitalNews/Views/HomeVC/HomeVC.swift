@@ -90,7 +90,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC else {return}
-        viewController.article = controller?.getArticle(index: indexPath.section)
+        viewController.article = controller?.getArticle(index: indexPath.section).url
         tableView.deselectRow(at: indexPath, animated: true)
         self.present(viewController, animated: true)
     }

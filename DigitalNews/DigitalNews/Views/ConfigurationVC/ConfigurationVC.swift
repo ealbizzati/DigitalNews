@@ -107,6 +107,7 @@ extension ConfigurationVC: UITableViewDelegate, UITableViewDataSource {
         case SectionIndex.Profile.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserProfileCell", for: indexPath) as? UserProfileCell else { return UITableViewCell()}
             cell.setupCellUser(image: "", name: "Giuliano Accorsi")
+            cell.selectionStyle = .none
             return cell
             
             

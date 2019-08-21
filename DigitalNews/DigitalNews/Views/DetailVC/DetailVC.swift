@@ -15,14 +15,15 @@ class DetailVC: UIViewController {
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     
-    var article: Article?
+    var article: String?
+    var saved: String?
     
     
     override func viewDidLoad() {
         webNew.layer.cornerRadius = 30
         webNew.layer.masksToBounds = true
-
-    
+        
+        
     }
     @IBAction func backButton(_ sender: Any) {
         self.dismiss(animated: true)
@@ -31,19 +32,33 @@ class DetailVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let urlString = article?.url {
-            let url = URL(string: urlString)
-            let request = URLRequest(url: url!)
-            webNew.allowsBackForwardNavigationGestures = true
-            webNew.allowsLinkPreview = false   //Padrão true
-            webNew.navigationDelegate = self
-            webNew.uiDelegate = self
-            webNew.load(request)
+        if Reachability.isConnectedToNetwork(){
+            print("Internet Connection Available!")
+            if let urlString = article {
+                let url = URL(string: urlString)
+                let request = URLRequest(url: url!)
+                webNew.allowsBackForwardNavigationGestures = true
+                webNew.allowsLinkPreview = false   //Padrão true
+                webNew.navigationDelegate = self
+                webNew.uiDelegate = self
+                webNew.load(request)
+            }
+        }else{
+            print("Internet Connection not Available!")
+            if let urlSaved = saved {
+                webNew.loadHTMLString(urlSaved, baseURL: nil)
+            }
         }
+        
+        
+        
+        
+        
     }
 }
 
-extension DetailVC: WKNavigationDelegate, WKUIDelegate{
+
+extension DetailVC: WKNavigationDelegate, WKUIDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         webNew.evaluateJavaScript("alert('Terminou de carregar')") { (result, error) in
             print(result ?? "")

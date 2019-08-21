@@ -52,6 +52,7 @@ class DataManager {
         news.title = article.title ?? ""
         news.urlToImage = article.urlToImage
         news.source = article.source?.name
+        news.urlOriginal = article.url
         
 
         do {

@@ -39,10 +39,19 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
         return FavoriteDataProvider.shared.getArrayCount()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard.init(name: "Detail", bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC else {return}
+        viewController.saved = FavoriteDataProvider.shared.getNewsSaved(index: indexPath.row)
+        viewController.article = FavoriteDataProvider.shared.getFullArticle(index: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.present(viewController, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableCell", for: indexPath) as? FavoriteTableCell else { return UITableViewCell()}
         
-        cell.setupCell(news: (FavoriteDataProvider.shared.getArticle(index: indexPath.row)))
+        cell.setupCell(news: (FavoriteDataProvider.shared.loadNewsSaved(index: indexPath.row)))
         return cell
     }
     

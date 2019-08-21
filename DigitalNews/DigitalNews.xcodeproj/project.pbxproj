@@ -31,6 +31,7 @@
 		194B8AE7230C6B170031645E /* News.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 194B8AE5230C6B170031645E /* News.xcdatamodeld */; };
 		194B8AEA230C6B9D0031645E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194B8AE9230C6B9D0031645E /* DataManager.swift */; };
 		1962EECF230CAF440014BB2E /* FavoriteSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962EECE230CAF440014BB2E /* FavoriteSingleton.swift */; };
+		1962EED1230CC1300014BB2E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962EED0230CC1300014BB2E /* Reachability.swift */; };
 		196E6DD9230B5E7000AAA848 /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E6DD8230B5E7000AAA848 /* FavoriteController.swift */; };
 		1970BD3822FB5C6300C394F2 /* ImageView+RoundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1970BD3722FB5C6300C394F2 /* ImageView+RoundCorners.swift */; };
 		1970BD3B22FB723800C394F2 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1970BD3922FB723800C394F2 /* NewsCell.swift */; };
@@ -87,6 +88,7 @@
 		194B8AE6230C6B170031645E /* News.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = News.xcdatamodel; sourceTree = "<group>"; };
 		194B8AE9230C6B9D0031645E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		1962EECE230CAF440014BB2E /* FavoriteSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSingleton.swift; sourceTree = "<group>"; };
+		1962EED0230CC1300014BB2E /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		196E6DD8230B5E7000AAA848 /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		1970BD3722FB5C6300C394F2 /* ImageView+RoundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+RoundCorners.swift"; sourceTree = "<group>"; };
 		1970BD3922FB723800C394F2 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				1928FEEB22E7855E0045E1F9 /* AppDelegate.swift */,
 				1928FEF422E7855F0045E1F9 /* LaunchScreen.storyboard */,
 				1928FEF722E7855F0045E1F9 /* Info.plist */,
+				1962EED0230CC1300014BB2E /* Reachability.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				1928FF0922E78AC30045E1F9 /* Article.swift in Sources */,
 				199379F622FCB426000EADC3 /* Shadow.swift in Sources */,
 				1990A59F22FA136E00A663B2 /* StyleView.swift in Sources */,
+				1962EED1230CC1300014BB2E /* Reachability.swift in Sources */,
 				19AB0FA3230B394A0086DFCD /* FavoriteTableCell.swift in Sources */,
 				194B8AE7230C6B170031645E /* News.xcdatamodeld in Sources */,
 				19BB51CE22E7A34300438429 /* APIManager.swift in Sources */,
