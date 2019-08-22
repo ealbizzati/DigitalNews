@@ -20,18 +20,18 @@ class SearchController {
     var arrayNews: [Article] = []
     var delegate: searchNewsControllerDelegate?
     var fetchMore: Bool = true
-    var indexPageRequest: Int = 2
+    var indexPageRequest: Int = 1
    
     
-    func searchNews(word: String, completion: @escaping ([Article]?, Bool) -> Void) {
+    func searchNews(word: String) {
         if fetchMore {
             apiManager.searchNews(word: word, page: indexPageRequest) { (newsArray, success) in
                 if success {
                     if let arraySuccess = newsArray {
                         self.arrayNews = arraySuccess
                         self.delegate?.finishRefresh()
-                        completion(self.arrayNews, true)
                     }
+                }else {
                 }
             }
         }
