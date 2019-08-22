@@ -20,10 +20,13 @@
                         <subviews>
                             <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pN6-kP-ZLC">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="YFc-9X-nab"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits"/>
+                                <color key="tintColor" red="0.93333333330000001" green="0.47843137250000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="yes"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
                                     <string>Title</string>

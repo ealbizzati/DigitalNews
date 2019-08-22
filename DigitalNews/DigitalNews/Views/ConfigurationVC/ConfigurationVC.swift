@@ -27,7 +27,7 @@ class ConfigurationVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let controller = UserController()
-    var palavra: String = UserDefaults.standard.string(forKey: TypeUserSettings.country.rawValue) ?? "" {
+    var palavra: String = UserDefaults.standard.string(forKey: TypeUserSettings.country.rawValue) ?? "Brasil" {
         didSet {
             tableView.reloadData()
         }

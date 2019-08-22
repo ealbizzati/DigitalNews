@@ -15,7 +15,10 @@ class ApiManager {
     
     func searchNews(word: String, page: Int, completion: @escaping completion<[Article]?>) {
         let url = API.baseURL + API.everything
-        let parameters:Parameters  = ["q":word, "apiKey":API.apiKey, "page": page, "language":UserDefaults.standard.string(forKey: TypeUserSettings.isoCountry.rawValue) ?? "pt"]
+        let parameters:Parameters  = ["q":word,
+                                      "apiKey":API.apiKey,
+                                      "page": page,
+                                      "language":"pt"]
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON { (response) in
             if response.response?.statusCode == 200 {
                 print("Deu Certo ApiManager - getNews()\n\(String(describing: response.result.value))")
