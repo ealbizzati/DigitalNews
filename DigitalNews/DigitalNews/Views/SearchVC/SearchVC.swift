@@ -10,16 +10,20 @@ import UIKit
 
 class SearchVC: UIViewController {
     
-    var countryNameArr = [Article]()
+    var controller: SearchController?
     
-   
-    var searching = false
-    var searchNews = SearchController()
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.isHidden = true
+        controller = SearchController()
+        
         searchBar.delegate = self
+        controller?.delegate = self
         
         
         
@@ -29,38 +33,55 @@ class SearchVC: UIViewController {
 extension SearchVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
-        return countryNameArr.count
+        return controller?.getArrayCount() ?? 0
         }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = countryNameArr[indexPath.row].title
-        return cell!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
+        cell.textLabel?.text = controller?.getArticle(index: indexPath.row).title
+        return cell
         
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let tagertContentOffSet = (tableView.contentSize.height - tableView.frame.height)
+        if scrollView.contentOffset.y > tagertContentOffSet {
+            controller?.loadMoreNews()
+        }
     }
     
 }
 
 extension SearchVC: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //searchedCountry = countryNameArr.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
-        searchNews.searchNews(word: searchText) { (noticias, sucess) in
-            if sucess {
-                self.countryNameArr = noticias ?? []
-                self.tableView.reloadData()
-            }
-        }
-        searching = true
-        
-        
-    }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searching = false
         searchBar.text = ""
+        searchBar.resignFirstResponder()
         tableView.reloadData()
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
+        controller?.searchNews(word: searchBar.text ?? "")
+        searchBar.resignFirstResponder()
+    }
+    
+    
+}
+
+extension SearchVC: searchNewsControllerDelegate {
+    func didFinishRequest() {
+        self.tableView.isHidden = false
+        self.tableView.reloadData()
+    }
+    
+    func finishRefresh() {
+        self.tableView.isHidden = false
+        self.tableView.reloadData()
+        
+    }
+    
+    
 }
 
 

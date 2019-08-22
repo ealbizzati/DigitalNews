@@ -1,22 +1,35 @@
 PODS:
   - Alamofire (4.8.2)
+  - FBSDKCoreKit (5.1.1):
+    - FBSDKCoreKit/Basics (= 5.1.1)
+    - FBSDKCoreKit/Core (= 5.1.1)
+  - FBSDKCoreKit/Basics (5.1.1)
+  - FBSDKCoreKit/Core (5.1.1):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.1.1):
+    - FBSDKCoreKit (~> 5.0)
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
   - SDWebImage/Core (5.0.6)
 
 DEPENDENCIES:
   - Alamofire
+  - FBSDKLoginKit
   - SDWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - FBSDKCoreKit
+    - FBSDKLoginKit
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  FBSDKCoreKit: c29b6b65f6a171ca0a317960a622cff62c9ee269
+  FBSDKLoginKit: fdaf402766755e1175ed5c0382f25e2e7dab3c2a
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
 
-PODFILE CHECKSUM: a4cff9f466c9247ee509ee28b86d79793705a076
+PODFILE CHECKSUM: e890a1ce0eaeb72e163e74825f361e4a74f08070
 
 COCOAPODS: 1.5.2
