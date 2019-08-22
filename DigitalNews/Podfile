@@ -10,5 +10,6 @@ target 'DigitalNews' do
   # Pods for DigitalNews
   pod 'Alamofire'
   pod 'SDWebImage'
+  pod 'FBSDKLoginKit'
 
 end

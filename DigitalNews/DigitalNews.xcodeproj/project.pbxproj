@@ -176,16 +176,12 @@
 		1928FEFD22E786400045E1F9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1962EED2230CD02C0014BB2E /* Utils */,
 				19C658BE23067B280007A9D2 /* Assets.xcassets */,
-				19C658BC2306521D0007A9D2 /* CollectionView - Checkmark.swift */,
-				1970BD3722FB5C6300C394F2 /* ImageView+RoundCorners.swift */,
-				1990A59E22FA136E00A663B2 /* StyleView.swift */,
-				199379F522FCB426000EADC3 /* Shadow.swift */,
 				1990A5A022FA221600A663B2 /* Fonts */,
 				1928FEEB22E7855E0045E1F9 /* AppDelegate.swift */,
 				1928FEF422E7855F0045E1F9 /* LaunchScreen.storyboard */,
 				1928FEF722E7855F0045E1F9 /* Info.plist */,
-				1962EED0230CC1300014BB2E /* Reachability.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -271,6 +267,18 @@
 				194B8AE9230C6B9D0031645E /* DataManager.swift */,
 			);
 			path = DataManager;
+			sourceTree = "<group>";
+		};
+		1962EED2230CD02C0014BB2E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				19C658BC2306521D0007A9D2 /* CollectionView - Checkmark.swift */,
+				1970BD3722FB5C6300C394F2 /* ImageView+RoundCorners.swift */,
+				1990A59E22FA136E00A663B2 /* StyleView.swift */,
+				199379F522FCB426000EADC3 /* Shadow.swift */,
+				1962EED0230CC1300014BB2E /* Reachability.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		196E6DD7230B5E5200AAA848 /* FavoriteVC */ = {
@@ -478,11 +486,15 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DigitalNews/Pods-DigitalNews-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -701,6 +713,18 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.GiulianoAccorsi.DigitalNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -719,6 +743,18 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.GiulianoAccorsi.DigitalNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
