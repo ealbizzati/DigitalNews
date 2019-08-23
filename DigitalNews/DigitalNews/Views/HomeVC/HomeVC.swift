@@ -21,6 +21,9 @@ class HomeVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeDisabled(_:)), name: .darkModeDisabled, object: nil)
    
         
         self.startAnimating()
@@ -40,6 +43,15 @@ class HomeVC: BaseViewController {
         
         controller?.getNews()
         
+    }
+    
+    @objc private func darkModeEnabled(_ notification: Notification) {
+        self.view.backgroundColor = .black
+        self.tableView.backgroundColor = .black
+    }
+    
+    @objc private func darkModeDisabled(_ notification: Notification) {
+        // Write your non-dark mode code here
     }
     
     @objc func refresh(sender: AnyObject) {

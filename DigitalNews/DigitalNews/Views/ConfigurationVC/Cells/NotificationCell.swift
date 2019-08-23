@@ -19,7 +19,15 @@ class NotificationCell: UITableViewCell {
         // Initialization code
     }
     
-    @IBAction func switchAction(_ sender: Any) {
+    @IBAction func switchAction(_ sender: UISwitch) {
+        if sender.isOn {
+            UserDefaults.standard.set(true, forKey: "isDarkMode")
+            NotificationCenter.default.post(name: .darkModeEnabled, object: nil)
+        }else {
+            UserDefaults.standard.set(false, forKey: "isDarkMode")
+             NotificationCenter.default.post(name: .darkModeDisabled, object: nil)
+        }
+        
     }
     
     func setupNotifCell (labelTexto: String, image: String) {
@@ -28,4 +36,8 @@ class NotificationCell: UITableViewCell {
         self.imageCell.image = UIImage(named: image)
     }
     
+}
+extension Notification.Name {
+    static let darkModeEnabled = Notification.Name("com.DigitalNews.notifications.darkModeEnabled")
+    static let darkModeDisabled = Notification.Name("com.DigitalNews.notifications.darkModeDisabled")
 }
