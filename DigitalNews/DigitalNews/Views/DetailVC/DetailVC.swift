@@ -10,18 +10,25 @@ import UIKit
 import WebKit
 
 
-class DetailVC: UIViewController {
+class DetailVC: BaseViewController {
     @IBOutlet weak var webNew: WKWebView!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
+
     
     var article: String?
     var saved: String?
     
     
     override func viewDidLoad() {
+        let prefereces = WKPreferences()
+        prefereces.javaScriptEnabled = false
+        
+        let configuration = WKWebViewConfiguration()
+        configuration.preferences = prefereces
+        webNew.navigationDelegate = self
         webNew.layer.cornerRadius = 30
         webNew.layer.masksToBounds = true
+
+    
         
         
     }
@@ -59,11 +66,13 @@ class DetailVC: UIViewController {
 
 
 extension DetailVC: WKNavigationDelegate, WKUIDelegate {
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+//        self.startAnimating()
+    }
+    
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        webNew.evaluateJavaScript("alert('Terminou de carregar')") { (result, error) in
-            print(result ?? "")
-        }
-        spinner.stopAnimating()
+        self.stopAnimating()
     }
     
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {

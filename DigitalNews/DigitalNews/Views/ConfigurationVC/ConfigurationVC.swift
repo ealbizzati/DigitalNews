@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FacebookCore
+import FacebookLogin
+import FBSDKLoginKit
 
 enum Section: Int {
     case numberOfSection = 4
@@ -46,9 +49,14 @@ class ConfigurationVC: UIViewController {
         self.tableView.tableFooterView = UIView()
     }
     
-    @objc func observerWordAPI() {
+    @IBAction func Logout(_ sender: Any) {
+        if AccessToken.current != nil {
+            AccessToken.current = nil
+            self.dismiss(animated: true)
+        }
         
     }
+    
     
 }
 
@@ -106,7 +114,9 @@ extension ConfigurationVC: UITableViewDelegate, UITableViewDataSource {
             
         case SectionIndex.Profile.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserProfileCell", for: indexPath) as? UserProfileCell else { return UITableViewCell()}
-            cell.setupCellUser(image: "", name: "Giuliano Accorsi")
+        
+            
+            cell.setupCellUser(name: UserDefaults.standard.string(forKey: "NomeFacebook") ?? "")
             cell.selectionStyle = .none
             return cell
             
@@ -183,7 +193,7 @@ extension ConfigurationVC: UITableViewDelegate, UITableViewDataSource {
                     self.navigationController?.pushViewController(viewController, animated: true)
                 case 1:
                     self.tableView.deselectRow(at: indexPath, animated: false)
-                    let alertController = UIAlertController(title: "Digital News", message: "App criado por: Giuliano Accorsi", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Digital News", message: "App criado por:\nGiuliano Accorsi\nPaulo Ricardo", preferredStyle: .alert)
                     let button = UIAlertAction(title: "Okay", style: .default)
                     button.setValue(UIColor.orange, forKey: "titleTextColor")
                     alertController.addAction(button)

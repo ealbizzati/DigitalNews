@@ -21,8 +21,10 @@ class UserProfileCell: UITableViewCell {
 //        imageUser.clipsToBounds = true
     }
 
-    func setupCellUser(image: String, name: String) {
+    func setupCellUser(name: String) {
         nameUser.text = name
+        let url = URL(string: UserDefaults.standard.string(forKey: "FotoFacebook")!)
+        imageUser.sd_setImage(with: url, completed: nil)
     }
     
 }

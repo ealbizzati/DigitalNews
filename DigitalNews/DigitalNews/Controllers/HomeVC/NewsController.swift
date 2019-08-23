@@ -23,8 +23,8 @@ class NewsController {
     
     func getNews() {
         if fetchMore {
-            ApiManager().getNews { (newsArray, success) in
-                if success {
+            ApiManager().getNews { (newsArray, error) in
+                if error == nil {
                     if let arraySuccess = newsArray {
                         self.arrayNews = arraySuccess
                         self.delegate?.finishRefresh()
@@ -38,8 +38,8 @@ class NewsController {
     func loadMoreNews() {
         if fetchMore {
             self.fetchMore = false
-            ApiManager().loadMoreNews(page: self.indexPageRequest) { (arrayNews, success) in
-                if success {
+            ApiManager().loadMoreNews(page: self.indexPageRequest) { (arrayNews, error) in
+                if error == nil {
                     if let array = arrayNews {
                         self.arrayNews.append(contentsOf: array)
                         self.indexPageRequest += 1

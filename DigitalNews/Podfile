@@ -11,5 +11,10 @@ target 'DigitalNews' do
   pod 'Alamofire'
   pod 'SDWebImage'
   pod 'FBSDKLoginKit'
+  pod 'lottie-ios'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FBSDKCoreKit'
+  
 
 end

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Giuliano Accorsi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum TypeCountry: String {
     case ae = "Emirados Árabes Unidos"
@@ -94,6 +94,15 @@ class UserController {
     func loadCategoryName(index: Int) -> String {
         return arrayCategory[index].rawValue
     }
+    
+//    func getImageProfile() -> UIImage {
+//        let url = UserDefaults.standard.url(forKey:"FotoFacebook")
+//        if let urlObitda = url {
+//            let data = try? Data(contentsOf: url!)
+//            return UIImage(data: data!) ?? UIImage()
+//        }
+//        return UIImage()
+//    }
     
     
 }
