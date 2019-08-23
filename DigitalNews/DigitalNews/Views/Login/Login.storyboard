@@ -28,28 +28,35 @@
                                     <action selector="buttonClickedFB:" destination="CQt-83-bDT" eventType="touchUpInside" id="YBG-i9-1w5"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="UFo-fx-riV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faça login utilizando sua conta do Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5V-3k-DZu">
+                                <rect key="frame" x="0.0" y="651" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DigitalNews" translatesAutoresizingMaskIntoConstraints="NO" id="z87-yx-2Tr">
                                 <rect key="frame" x="0.0" y="44" width="414" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="rIr-yS-QiM"/>
+                                    <constraint firstAttribute="height" constant="300" id="ycn-vb-Yyr"/>
                                 </constraints>
-                            </view>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Vz8-dT-qf1" firstAttribute="trailing" secondItem="z87-yx-2Tr" secondAttribute="trailing" id="5eG-VD-bp1"/>
                             <constraint firstItem="Vz8-dT-qf1" firstAttribute="bottom" secondItem="Xu1-cP-G9a" secondAttribute="bottom" constant="100" id="6sd-7a-8cx"/>
                             <constraint firstItem="Xu1-cP-G9a" firstAttribute="leading" secondItem="Vz8-dT-qf1" secondAttribute="leading" constant="8" id="9qG-aO-VtN"/>
                             <constraint firstItem="Vz8-dT-qf1" firstAttribute="trailing" secondItem="Xu1-cP-G9a" secondAttribute="trailing" constant="8" id="EfP-Nu-aXi"/>
-                            <constraint firstItem="UFo-fx-riV" firstAttribute="leading" secondItem="Vz8-dT-qf1" secondAttribute="leading" id="TOA-EG-sci"/>
-                            <constraint firstItem="UFo-fx-riV" firstAttribute="top" secondItem="Vz8-dT-qf1" secondAttribute="top" id="UXY-8M-Cz2"/>
-                            <constraint firstItem="Vz8-dT-qf1" firstAttribute="trailing" secondItem="UFo-fx-riV" secondAttribute="trailing" id="eWg-J9-7ue"/>
+                            <constraint firstItem="Xu1-cP-G9a" firstAttribute="top" secondItem="Q5V-3k-DZu" secondAttribute="bottom" constant="50" id="TPz-aV-fbI"/>
+                            <constraint firstItem="Q5V-3k-DZu" firstAttribute="leading" secondItem="Vz8-dT-qf1" secondAttribute="leading" id="bTP-0o-Drc"/>
+                            <constraint firstItem="z87-yx-2Tr" firstAttribute="leading" secondItem="Vz8-dT-qf1" secondAttribute="leading" id="dkh-Gu-pEy"/>
+                            <constraint firstItem="Vz8-dT-qf1" firstAttribute="trailing" secondItem="Q5V-3k-DZu" secondAttribute="trailing" id="vaL-Bi-geX"/>
+                            <constraint firstItem="z87-yx-2Tr" firstAttribute="top" secondItem="Vz8-dT-qf1" secondAttribute="top" id="yvY-mJ-Nyg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vz8-dT-qf1"/>
                     </view>
                     <connections>
                         <outlet property="buttonFacebook" destination="Xu1-cP-G9a" id="Pw8-Ue-jlo"/>
-                        <outlet property="viewIntro" destination="UFo-fx-riV" id="5dB-nD-ZHg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PHq-Zi-e45" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -57,4 +64,7 @@
             <point key="canvasLocation" x="231.8840579710145" y="-229.01785714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DigitalNews" width="1024" height="1024"/>
+    </resources>
 </document>

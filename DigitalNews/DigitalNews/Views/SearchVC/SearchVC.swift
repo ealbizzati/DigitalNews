@@ -32,6 +32,24 @@ class SearchVC: BaseViewController {
 
 extension SearchVC: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favoritarSwipe = UIContextualAction(style: .normal, title: "Favoritar") { [weak self](action, view, completionHandler) in
+            guard let self = self else {
+                return completionHandler(false)
+            }
+            
+            FavoriteDataProvider.shared.registerNewsSaved(article: self.controller?.getArticle(index: indexPath.row) ?? Article(source: Source(id: "", name: ""), author: "", title: "", articleDescription: "", url: "", urlToImage: "", publishedAt: "", content: ""), completion: { (success) in
+                if success {
+                    print("Deu bom ao favoritar")
+                }
+            })
+            completionHandler(true)
+        }
+        favoritarSwipe.backgroundColor = .orange
+        favoritarSwipe.image = UIImage(named: "like")
+        return UISwipeActionsConfiguration(actions: [favoritarSwipe])
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return controller?.getArrayCount() ?? 0
         }
