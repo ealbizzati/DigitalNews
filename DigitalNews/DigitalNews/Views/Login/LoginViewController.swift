@@ -10,15 +10,12 @@ import UIKit
 
 import FBSDKLoginKit
 
-import Lottie
 
 class LoginViewController: BaseViewController {
     
-    @IBOutlet weak var viewIntro: UIView!
+
     @IBOutlet weak var buttonFacebook: FBLoginButton!
-    let introAnimationView = AnimationView()
-    let introAnimation = Animation.named("introLoading")
-    
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,19 +23,8 @@ class LoginViewController: BaseViewController {
         buttonFacebook.backgroundColor = UIColor(red: 0.258, green: 0.395, blue: 0.737, alpha: 1.0)
         buttonFacebook.tintColor = .white
         
-//        startAnimating2()
     }
-    func startAnimating2() {
-        introAnimationView.isHidden = false
-        introAnimationView.animation = introAnimation
-        introAnimationView.frame = viewIntro.frame
-        introAnimationView.center = viewIntro.center
-        introAnimationView.loopMode = .loop
-        introAnimationView.play()
-        self.view.addSubview(introAnimationView)
-        
-        
-    }
+
     
     func getInformation(completion: @escaping (Bool) -> Void) {
         Settings.isAutoLogAppEventsEnabled = true
