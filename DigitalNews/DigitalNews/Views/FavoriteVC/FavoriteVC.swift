@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoriteVC: UIViewController {
+class FavoriteVC: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var controller: FavoriteController?
@@ -45,7 +45,7 @@ extension FavoriteVC: UITableViewDelegate, UITableViewDataSource {
         viewController.saved = FavoriteDataProvider.shared.getNewsSaved(index: indexPath.row)
         viewController.article = FavoriteDataProvider.shared.getFullArticle(index: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
-        self.present(viewController, animated: true)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

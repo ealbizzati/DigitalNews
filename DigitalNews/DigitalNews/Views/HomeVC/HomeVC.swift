@@ -7,25 +7,27 @@
 //
 
 import UIKit
+import Lottie
 
-class HomeVC: UIViewController {
+class HomeVC: BaseViewController {
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
     var controller: NewsController?
     var refreshControl:UIRefreshControl = UIRefreshControl()
+  
     
-    var viewController: FavoriteVC?=nil
     
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
+   
         
-        
+        self.startAnimating()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
         self.refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
-        self.spinner.startAnimating()
-        self.spinner.isHidden = false
+
         
         
         controller = NewsController()
@@ -51,8 +53,7 @@ class HomeVC: UIViewController {
     
     @objc func valueChanged() {
         self.tableView.isHidden = true
-        self.spinner.startAnimating()
-        self.spinner.isHidden = false
+        self.startAnimating()
         controller?.getNews()
     }
 
@@ -92,7 +93,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC else {return}
         viewController.article = controller?.getArticle(index: indexPath.section).url
         tableView.deselectRow(at: indexPath, animated: true)
-        self.present(viewController, animated: true)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -143,8 +144,7 @@ extension HomeVC: NewsControllerDelegate {
     }
     
     func finishRefresh() {
-        self.spinner.stopAnimating()
-        self.spinner.isHidden = true
+        self.stopAnimating()
         self.refreshControl.endRefreshing()
         self.tableView.reloadData()
         self.tableView.isHidden = false

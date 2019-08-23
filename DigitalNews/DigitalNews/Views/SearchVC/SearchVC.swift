@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchVC: UIViewController {
+class SearchVC: BaseViewController {
     
     var controller: SearchController?
     
@@ -44,6 +44,15 @@ extension SearchVC: UITableViewDataSource, UITableViewDelegate {
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard.init(name: "Detail", bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC else {return}
+        viewController.saved = controller?.getArticle(index: indexPath.row).url
+        viewController.article = controller?.getArticle(index: indexPath.row).url
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let tagertContentOffSet = (tableView.contentSize.height - tableView.frame.height)
         if scrollView.contentOffset.y > tagertContentOffSet {
@@ -61,7 +70,7 @@ extension SearchVC: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-
+        self.startAnimating()
         controller?.searchNews(word: searchBar.text ?? "")
         searchBar.resignFirstResponder()
     }
@@ -73,11 +82,13 @@ extension SearchVC: searchNewsControllerDelegate {
     func didFinishRequest() {
         self.tableView.isHidden = false
         self.tableView.reloadData()
+        self.stopAnimating()
     }
     
     func finishRefresh() {
         self.tableView.isHidden = false
         self.tableView.reloadData()
+        self.stopAnimating()
         
     }
     

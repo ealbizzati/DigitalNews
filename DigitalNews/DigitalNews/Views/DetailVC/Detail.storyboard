@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxO-za-C1X">
-                                <rect key="frame" x="8" y="94" width="398" height="802"/>
+                                <rect key="frame" x="8" y="88" width="398" height="808"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <wkWebViewConfiguration key="configuration">
@@ -27,34 +27,18 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lzS-l3-P7W">
-                                <rect key="frame" x="197" y="438" width="20" height="20"/>
-                            </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XeI-wn-4cY">
-                                <rect key="frame" x="16" y="48" width="41" height="30"/>
-                                <state key="normal" title="Voltar">
-                                    <color key="titleColor" red="1" green="0.58045899868011475" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButton:" destination="Bhw-ig-V74" eventType="touchUpInside" id="YFd-yr-zlu"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="lzS-l3-P7W" firstAttribute="centerX" secondItem="KT3-ah-6Ib" secondAttribute="centerX" id="2zF-6l-Qa4"/>
                             <constraint firstAttribute="bottom" secondItem="hxO-za-C1X" secondAttribute="bottom" id="8X8-UV-wyE"/>
                             <constraint firstItem="Mne-xW-Q7R" firstAttribute="trailing" secondItem="hxO-za-C1X" secondAttribute="trailing" constant="8" id="DkS-Qh-qql"/>
-                            <constraint firstItem="hxO-za-C1X" firstAttribute="top" secondItem="Mne-xW-Q7R" secondAttribute="top" constant="50" id="PHK-FE-73k"/>
+                            <constraint firstItem="hxO-za-C1X" firstAttribute="top" secondItem="Mne-xW-Q7R" secondAttribute="top" id="PHK-FE-73k"/>
                             <constraint firstItem="hxO-za-C1X" firstAttribute="leading" secondItem="Mne-xW-Q7R" secondAttribute="leading" constant="8" id="fcZ-sl-07W"/>
-                            <constraint firstItem="hxO-za-C1X" firstAttribute="top" secondItem="XeI-wn-4cY" secondAttribute="bottom" constant="16" id="uDL-Rc-rny"/>
-                            <constraint firstItem="lzS-l3-P7W" firstAttribute="centerY" secondItem="KT3-ah-6Ib" secondAttribute="centerY" id="wjY-td-UON"/>
-                            <constraint firstItem="XeI-wn-4cY" firstAttribute="leading" secondItem="Mne-xW-Q7R" secondAttribute="leading" constant="16" id="ylS-Oy-uAQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mne-xW-Q7R"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="spinner" destination="lzS-l3-P7W" id="zBn-Nw-6F4"/>
                         <outlet property="webNew" destination="hxO-za-C1X" id="dEk-7k-9Ix"/>
                     </connections>
                 </viewController>

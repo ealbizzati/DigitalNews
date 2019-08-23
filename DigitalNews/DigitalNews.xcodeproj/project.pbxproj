@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		190065EC2305FCBB00F9AB8E /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190065EA2305FCBB00F9AB8E /* CategoryCell.swift */; };
 		190065ED2305FCBB00F9AB8E /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 190065EB2305FCBB00F9AB8E /* CategoryCell.xib */; };
+		1902FA14230F6CDA008EAD0D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1902FA13230F6CDA008EAD0D /* BaseViewController.swift */; };
+		191BBC7F230F16E8003054E2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BBC7E230F16E8003054E2 /* LoginViewController.swift */; };
 		1928FEEC22E7855E0045E1F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1928FEEB22E7855E0045E1F9 /* AppDelegate.swift */; };
 		1928FEEE22E7855E0045E1F9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1928FEED22E7855E0045E1F9 /* HomeVC.swift */; };
 		1928FEF122E7855E0045E1F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1928FEEF22E7855E0045E1F9 /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 		1970BD3C22FB723800C394F2 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1970BD3A22FB723800C394F2 /* NewsCell.xib */; };
 		1970BD4022FB7E0A00C394F2 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1970BD3E22FB7E0A00C394F2 /* DetailVC.swift */; };
 		1970BD4522FB979100C394F2 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1970BD4422FB979100C394F2 /* Detail.storyboard */; };
+		1983EBF423101AAE00A588FE /* loadingAPI.json in Resources */ = {isa = PBXBuildFile; fileRef = 1983EBF323101AAE00A588FE /* loadingAPI.json */; };
+		1983EBFD231037F800A588FE /* introLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = 1983EBFC231037F700A588FE /* introLoading.json */; };
 		1990A59222FA0C9F00A663B2 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990A59122FA0C9F00A663B2 /* FavoriteVC.swift */; };
 		1990A59422FA0CC800A663B2 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990A59322FA0CC800A663B2 /* SearchVC.swift */; };
 		1990A59622FA0CFA00A663B2 /* ConfigurationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990A59522FA0CFA00A663B2 /* ConfigurationVC.swift */; };
@@ -64,6 +68,8 @@
 /* Begin PBXFileReference section */
 		190065EA2305FCBB00F9AB8E /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		190065EB2305FCBB00F9AB8E /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		1902FA13230F6CDA008EAD0D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		191BBC7E230F16E8003054E2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1928FEE822E7855E0045E1F9 /* DigitalNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitalNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1928FEEB22E7855E0045E1F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1928FEED22E7855E0045E1F9 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -95,6 +101,8 @@
 		1970BD3A22FB723800C394F2 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		1970BD3E22FB7E0A00C394F2 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		1970BD4422FB979100C394F2 /* Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		1983EBF323101AAE00A588FE /* loadingAPI.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingAPI.json; sourceTree = "<group>"; };
+		1983EBFC231037F700A588FE /* introLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = introLoading.json; sourceTree = "<group>"; };
 		1990A59122FA0C9F00A663B2 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 		1990A59322FA0CC800A663B2 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		1990A59522FA0CFA00A663B2 /* ConfigurationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationVC.swift; sourceTree = "<group>"; };
@@ -176,6 +184,8 @@
 		1928FEFD22E786400045E1F9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1983EBFC231037F700A588FE /* introLoading.json */,
+				1983EBF323101AAE00A588FE /* loadingAPI.json */,
 				1962EED2230CD02C0014BB2E /* Utils */,
 				19C658BE23067B280007A9D2 /* Assets.xcassets */,
 				1990A5A022FA221600A663B2 /* Fonts */,
@@ -223,6 +233,7 @@
 				19A6FC9522F123AC00686EED /* FavoriteVC */,
 				19A6FC8F22F1222F00686EED /* SearchVC */,
 				19A6FC9022F1223A00686EED /* ConfigurationVC */,
+				1902FA13230F6CDA008EAD0D /* BaseViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -321,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				19A6FC8522F120F000686EED /* Login.storyboard */,
+				191BBC7E230F16E8003054E2 /* LoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -460,12 +472,14 @@
 				19A6FC8622F120F000686EED /* Login.storyboard in Resources */,
 				1928FEF622E7855F0045E1F9 /* LaunchScreen.storyboard in Resources */,
 				1947B0FD2303D72C00C149C7 /* UserProfileCell.xib in Resources */,
+				1983EBFD231037F800A588FE /* introLoading.json in Resources */,
 				1947B0F62303C59800C149C7 /* NotificationCell.xib in Resources */,
 				1990A5A422FA222300A663B2 /* circular.otf in Resources */,
 				1970BD3C22FB723800C394F2 /* NewsCell.xib in Resources */,
 				19A6FC9B22F124D200686EED /* Home.storyboard in Resources */,
 				19A6FC9222F1231E00686EED /* Configuration.storyboard in Resources */,
 				19A6FC9422F1237E00686EED /* Search.storyboard in Resources */,
+				1983EBF423101AAE00A588FE /* loadingAPI.json in Resources */,
 				19AB0FA4230B394A0086DFCD /* FavoriteTableCell.xib in Resources */,
 				1928FEF122E7855E0045E1F9 /* Main.storyboard in Resources */,
 				1990A5A322FA222300A663B2 /* noe.ttf in Resources */,
@@ -488,14 +502,20 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -532,6 +552,7 @@
 				1947B0F52303C59800C149C7 /* NotificationCell.swift in Sources */,
 				1930E8872303588D00D57A33 /* LocalVC.swift in Sources */,
 				1990A59922FA0DCE00A663B2 /* NewsController.swift in Sources */,
+				1902FA14230F6CDA008EAD0D /* BaseViewController.swift in Sources */,
 				1962EECF230CAF440014BB2E /* FavoriteSingleton.swift in Sources */,
 				1947B1012303D8A500C149C7 /* ProfileVC.swift in Sources */,
 				1928FEEC22E7855E0045E1F9 /* AppDelegate.swift in Sources */,
@@ -557,6 +578,7 @@
 				199379F622FCB426000EADC3 /* Shadow.swift in Sources */,
 				1990A59F22FA136E00A663B2 /* StyleView.swift in Sources */,
 				1962EED1230CC1300014BB2E /* Reachability.swift in Sources */,
+				191BBC7F230F16E8003054E2 /* LoginViewController.swift in Sources */,
 				19AB0FA3230B394A0086DFCD /* FavoriteTableCell.swift in Sources */,
 				194B8AE7230C6B170031645E /* News.xcdatamodeld in Sources */,
 				19BB51CE22E7A34300438429 /* APIManager.swift in Sources */,

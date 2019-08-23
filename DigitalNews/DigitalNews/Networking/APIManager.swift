@@ -10,7 +10,8 @@ import Foundation
 import Alamofire
 
 class ApiManager {
-    typealias completion <T> = (_ result: T, _ failure: Bool) -> Void
+    typealias completion <T> = (_ result: T, _ failure: NSError?) -> Void
+    var error: NSError = NSError(domain: "Erro :c", code: 400, userInfo: [NSLocalizedDescriptionKey: "Tivemos um problema ao obter as informações"])
     
     
     func searchNews(word: String, page: Int, completion: @escaping completion<[Article]?>) {
@@ -23,21 +24,21 @@ class ApiManager {
             if response.response?.statusCode == 200 {
                 print("Deu Certo ApiManager - getNews()\n\(String(describing: response.result.value))")
                 guard let data = response.data else {
-                    completion(nil,false)
+                    completion(nil,self.error)
                     return
                 }
                 do {
                     let result = try JSONDecoder().decode(NewsAPI.self, from: data)
-                    completion(result.articles,true)
+                    completion(result.articles,nil)
                     return
                 }catch {
                     print("Error - JSONDecoder() - ApiManager - searchNews()")
-                    completion(nil,false)
+                    completion(nil,self.error)
                     return
                 }
             }else {
                 print("Não deu 200 :c - ApiManager - searchNews()")
-                completion(nil,false)
+                completion(nil,self.error)
                 return
             }
         }
@@ -56,21 +57,21 @@ class ApiManager {
             if response.response?.statusCode == 200 {
                 print("Deu Certo ApiManager - getNews()\n\(String(describing: response.result.value))")
                 guard let data = response.data else {
-                    completion(nil,false)
+                    completion(nil,self.error)
                     return
                 }
                 do {
                     let result = try JSONDecoder().decode(NewsAPI.self, from: data)
-                    completion(result.articles,true)
+                    completion(result.articles,nil)
                     return
                 }catch {
                     print("Error - JSONDecoder() - ApiManager - getNews()")
-                    completion(nil,false)
+                    completion(nil,self.error)
                     return
                 }
             }else {
                 print("Não deu 200 :c - ApiManager - getNews()")
-                completion(nil,false)
+                completion(nil,self.error)
                 return
             }
         }
@@ -88,22 +89,22 @@ class ApiManager {
             if response.response?.statusCode == 200 {
                 print("Deu Certo ApiManager - loadMoreNews()\n\(String(describing: response.result.value))")
                 guard let data = response.data else {
-                    completion(nil,false)
+                    completion(nil,self.error)
                     return
                 }
                 
                 do {
                     let result = try JSONDecoder().decode(NewsAPI.self, from: data)
-                    completion(result.articles, true)
+                    completion(result.articles, nil)
                     return
                 }catch {
                     print("Error - JSONDecoder() - ApiManager - loadMoreNews()")
-                    completion(nil,false)
+                    completion(nil,self.error)
                     return
                 }
             }else {
                 print("Não deu 200 :c - APIManager - loadMoreNews()")
-                completion(nil,false)
+                completion(nil,self.error)
                 return
             }
         }

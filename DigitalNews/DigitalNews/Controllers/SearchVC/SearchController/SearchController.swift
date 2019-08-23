@@ -25,8 +25,8 @@ class SearchController {
     
     func searchNews(word: String) {
         if fetchMore {
-            apiManager.searchNews(word: word, page: indexPageRequest) { (newsArray, success) in
-                if success {
+            apiManager.searchNews(word: word, page: indexPageRequest) { (newsArray, error) in
+                if error == nil {
                     if let arraySuccess = newsArray {
                         self.arrayNews = arraySuccess
                         self.delegate?.finishRefresh()
@@ -40,8 +40,8 @@ class SearchController {
     func loadMoreNews() {
         if fetchMore {
             self.fetchMore = false
-            ApiManager().loadMoreNews(page: self.indexPageRequest) { (arrayNews, success) in
-                if success {
+            ApiManager().loadMoreNews(page: self.indexPageRequest) { (arrayNews, error) in
+                if error == nil {
                     if let array = arrayNews {
                         self.arrayNews.append(contentsOf: array)
                         self.indexPageRequest += 1
