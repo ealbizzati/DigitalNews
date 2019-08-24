@@ -112,6 +112,7 @@
                 <outlet property="labelDesc" destination="fru-2b-urW" id="vpB-SP-gvf"/>
                 <outlet property="labelTitulo" destination="6Ui-Pe-kKG" id="eZi-bv-YAG"/>
                 <outlet property="newsImage" destination="Ybj-uu-E8o" id="46g-Gh-Zyo"/>
+                <outlet property="viewUm" destination="uNS-4v-4fB" id="MXh-81-If7"/>
             </connections>
             <point key="canvasLocation" x="47.826086956521742" y="74.665178571428569"/>
         </tableViewCell>

@@ -1,20 +1,18 @@
 //
-//  UserProfileCell.swift
+//  SearchCell.swift
 //  DigitalNews
 //
-//  Created by Giuliano Accorsi on 14/08/19.
+//  Created by Giuliano Accorsi on 24/08/19.
 //  Copyright © 2019 Giuliano Accorsi. All rights reserved.
 //
 
 import UIKit
 
-class UserProfileCell: UITableViewCell {
-    @IBOutlet weak var imageUser: UIImageView!
-    @IBOutlet weak var nameUser: UILabel!
-    
+class SearchCell: UITableViewCell {
+
+    @IBOutlet weak var textNews: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageUser.layer.cornerRadius = imageUser.frame.height/2
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeDisabled(_:)), name: .darkModeDisabled, object: nil)
         
@@ -25,7 +23,6 @@ class UserProfileCell: UITableViewCell {
             darkModeDisable()
         }
     }
-    
     @objc private func darkModeEnabled(_ notification: Notification) {
         darkModeEnable()
     }
@@ -36,17 +33,19 @@ class UserProfileCell: UITableViewCell {
     }
     
     func darkModeEnable() {
-        self.backgroundColor = UIColor(red: 0.449, green: 0.449, blue: 0.449, alpha: 1.0)
+        self.backgroundColor = UIColor(red: 0.341, green: 0.341, blue: 0.341, alpha: 1.0)
+        self.textNews.textColor = .white
+        
     }
     
     func darkModeDisable() {
-       self.backgroundColor = .white
+        self.backgroundColor =  .white
+        self.textNews.textColor = .black
+        
     }
-
-    func setupCellUser(name: String) {
-        nameUser.text = name
-        let url = URL(string: UserDefaults.standard.string(forKey: "FotoFacebook")!)
-        imageUser.sd_setImage(with: url, completed: nil)
+    
+    func setupCell(title: Article) {
+        self.textNews.text = title.title
     }
     
 }

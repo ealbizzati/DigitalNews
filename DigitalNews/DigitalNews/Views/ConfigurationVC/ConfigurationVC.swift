@@ -38,6 +38,15 @@ class ConfigurationVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeDisabled(_:)), name: .darkModeDisabled, object: nil)
+        
+        let darkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+        if darkMode {
+            darkModeEnable()
+        }else {
+            darkModeDisable()
+        }
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -56,6 +65,27 @@ class ConfigurationVC: UIViewController {
         }
         
     }
+    
+    @objc private func darkModeEnabled(_ notification: Notification) {
+        darkModeEnable()
+    }
+    
+    @objc private func darkModeDisabled(_ notification: Notification) {
+        darkModeDisable()
+        
+    }
+    
+    func darkModeEnable() {
+        self.tableView.backgroundColor = UIColor(red: 0.341, green: 0.341, blue: 0.341, alpha: 1.0)
+        self.navigationController?.navigationBar.barStyle = .blackTranslucent
+    }
+    
+    func darkModeDisable() {
+        self.tableView.backgroundColor = UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1.0)
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.barStyle = .default
+    }
+    
     
     
 }
@@ -123,7 +153,7 @@ extension ConfigurationVC: UITableViewDelegate, UITableViewDataSource {
             
         case SectionIndex.Notification.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as? NotificationCell else { return UITableViewCell()}
-            cell.setupNotifCell(labelTexto: "Notificação", image: "notification480")
+            cell.setupNotifCell(labelTexto: "Modo Escuro", image: "darkMode")
             return cell
             
             

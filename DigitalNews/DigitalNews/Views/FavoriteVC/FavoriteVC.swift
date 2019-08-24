@@ -19,6 +19,37 @@ class FavoriteVC: BaseViewController {
         self.tableView.register(UINib(nibName: "FavoriteTableCell", bundle: nil), forCellReuseIdentifier: "FavoriteTableCell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeDisabled(_:)), name: .darkModeDisabled, object: nil)
+        
+        let darkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+        if darkMode {
+            darkModeEnable()
+        }else {
+            darkModeDisable()
+        }
+    }
+    
+    @objc private func darkModeEnabled(_ notification: Notification) {
+        darkModeEnable()
+    }
+    
+    @objc private func darkModeDisabled(_ notification: Notification) {
+        darkModeDisable()
+        
+    }
+    
+    func darkModeEnable() {
+        self.tableView.backgroundColor = UIColor(red: 0.341, green: 0.341, blue: 0.341, alpha: 1.0)
+        self.navigationController?.navigationBar.barStyle = .blackTranslucent
+        
+    }
+    
+    func darkModeDisable() {
+        self.tableView.backgroundColor = .white
+        self.navigationController?.navigationBar.barStyle = .default
+        
     }
     
 

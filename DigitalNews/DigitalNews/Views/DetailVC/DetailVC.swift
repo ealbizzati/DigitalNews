@@ -27,9 +27,33 @@ class DetailVC: BaseViewController {
         webNew.navigationDelegate = self
         webNew.layer.cornerRadius = 30
         webNew.layer.masksToBounds = true
-
-    
         
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeDisabled(_:)), name: .darkModeDisabled, object: nil)
+        
+        let darkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+        if darkMode {
+            darkModeEnable()
+        }else {
+            darkModeDisable()
+        }
+    }
+    @objc private func darkModeEnabled(_ notification: Notification) {
+        darkModeEnable()
+    }
+    
+    @objc private func darkModeDisabled(_ notification: Notification) {
+        darkModeDisable()
+        
+    }
+    
+    func darkModeEnable() {
+        self.view.backgroundColor = UIColor(red: 0.449, green: 0.449, blue: 0.449, alpha: 1.0)
+        
+    }
+    
+    func darkModeDisable() {
+        self.view.backgroundColor = .white
         
     }
     @IBAction func backButton(_ sender: Any) {

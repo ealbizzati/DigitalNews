@@ -22,12 +22,20 @@ class HomeVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeDisabled(_:)), name: .darkModeDisabled, object: nil)
-   
         
+        let darkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+        if darkMode {
+            darkModeEnable()
+        }else {
+            darkModeDisable()
+        }
+   
         self.startAnimating()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+        self.refreshControl.tintColor = UIColor(red: 0.998, green: 0.502, blue: 0.041, alpha: 1.0)
         self.refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
 
@@ -46,12 +54,25 @@ class HomeVC: BaseViewController {
     }
     
     @objc private func darkModeEnabled(_ notification: Notification) {
-        self.view.backgroundColor = .black
-        self.tableView.backgroundColor = .black
+        darkModeEnable()
     }
     
     @objc private func darkModeDisabled(_ notification: Notification) {
-        // Write your non-dark mode code here
+        darkModeDisable()
+        
+    }
+    
+    func darkModeEnable() {
+        self.tableView.backgroundColor = UIColor(red: 0.341, green: 0.341, blue: 0.341, alpha: 1.0)
+        self.navigationController?.navigationBar.barStyle = .blackTranslucent
+//        self.tabBarController?.tabBar.barStyle = .blackTranslucent
+        
+    }
+    
+    func darkModeDisable() {
+        self.tableView.backgroundColor = .white
+        self.navigationController?.navigationBar.barStyle = .default
+        
     }
     
     @objc func refresh(sender: AnyObject) {

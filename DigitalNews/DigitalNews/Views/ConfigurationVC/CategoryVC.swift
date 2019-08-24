@@ -19,7 +19,38 @@ class CategoryVC: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCell")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeDisabled(_:)), name: .darkModeDisabled, object: nil)
+        
+        let darkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+        if darkMode {
+            darkModeEnable()
+        }else {
+            darkModeDisable()
+        }
 
+    }
+    
+    @objc private func darkModeEnabled(_ notification: Notification) {
+        darkModeEnable()
+    }
+    
+    @objc private func darkModeDisabled(_ notification: Notification) {
+        darkModeDisable()
+        
+    }
+    
+    func darkModeEnable() {
+        self.collectionView.backgroundColor = UIColor(red: 0.341, green: 0.341, blue: 0.341, alpha: 1.0)
+        self.view.backgroundColor = UIColor(red: 0.341, green: 0.341, blue: 0.341, alpha: 1.0)
+        
+    }
+    
+    func darkModeDisable() {
+        self.collectionView.backgroundColor = .white
+        self.view.backgroundColor = .white
+        
     }
 }
 

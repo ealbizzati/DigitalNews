@@ -20,17 +20,67 @@ class SearchVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.isHidden = true
+        tableView.register(UINib(nibName: "SearchCell", bundle: nil), forCellReuseIdentifier: "SearchCell")
         controller = SearchController()
         
         searchBar.delegate = self
         controller?.delegate = self
         
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeDisabled(_:)), name: .darkModeDisabled, object: nil)
         
+        let darkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+        if darkMode {
+            darkModeEnable()
+        }else {
+            darkModeDisable()
+        }
+    }
+    @objc private func darkModeEnabled(_ notification: Notification) {
+        darkModeEnable()
+    }
+    
+    @objc private func darkModeDisabled(_ notification: Notification) {
+        darkModeDisable()
         
     }
+    
+    func darkModeEnable() {
+        self.navigationController?.navigationBar.barStyle = .blackTranslucent
+        self.tableView.backgroundColor = UIColor(red: 0.341, green: 0.341, blue: 0.341, alpha: 1.0)
+        self.searchBar.barStyle = .blackTranslucent
+        self.view.backgroundColor = UIColor(red: 0.341, green: 0.341, blue: 0.341, alpha: 1.0)
+        self.searchBar.barTintColor = UIColor(red: 0.341, green: 0.341, blue: 0.341, alpha: 1.0)
+        
+    }
+    
+    func darkModeDisable() {
+        self.navigationController?.navigationBar.barStyle = .default
+        self.tableView.backgroundColor = .white
+        self.searchBar.barStyle = .default
+        self.searchBar.barTintColor = .white
+        self.view.backgroundColor = .white
+        
+    }
+    
+    
 }
 
 extension SearchVC: UITableViewDataSource, UITableViewDelegate {
+    
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let darkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+        if darkMode {
+            darkModeEnable()
+            cell.backgroundColor = UIColor(red: 0.341, green: 0.341, blue: 0.341, alpha: 1.0)
+            cell.textLabel?.textColor = .white
+        }else {
+            darkModeDisable()
+            cell.backgroundColor = .white
+            cell.textLabel?.textColor = .black
+        }
+    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let favoritarSwipe = UIContextualAction(style: .normal, title: "Favoritar") { [weak self](action, view, completionHandler) in
@@ -56,8 +106,8 @@ extension SearchVC: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
-        cell.textLabel?.text = controller?.getArticle(index: indexPath.row).title
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as? SearchCell else {return UITableViewCell()}
+        cell.setupCell(title: controller?.getArticle(index: indexPath.row) ?? Article(source: Source(id: "", name: ""), author: "", title: "", articleDescription: "", url: "", urlToImage: "", publishedAt: "", content: ""))
         return cell
         
     }
@@ -81,6 +131,10 @@ extension SearchVC: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension SearchVC: UISearchBarDelegate {
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.resignFirstResponder()

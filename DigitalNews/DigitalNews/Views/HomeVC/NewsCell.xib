@@ -124,6 +124,8 @@
                 <outlet property="labelDescription" destination="wds-3e-Bha" id="GKE-ES-fv1"/>
                 <outlet property="labelSource" destination="O6L-3w-CZQ" id="MXq-RF-i0Q"/>
                 <outlet property="labelTitulo" destination="sbR-Ea-oUO" id="5ZO-qa-abZ"/>
+                <outlet property="viewClipBounds" destination="5m3-fy-i9o" id="6um-g5-ATZ"/>
+                <outlet property="viewSombra" destination="ZDX-2X-rrr" id="SOe-Eg-ads"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="227.67857142857142"/>
         </tableViewCell>

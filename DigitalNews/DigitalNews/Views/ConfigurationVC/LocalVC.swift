@@ -33,15 +33,53 @@ class LocalVC: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.tintColor = .orange
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeEnabled(_:)), name: .darkModeEnabled, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeDisabled(_:)), name: .darkModeDisabled, object: nil)
+        
+        let darkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+        if darkMode {
+            darkModeEnable()
+        }else {
+            darkModeDisable()
+        }
 
     }
     
-    @objc func userChangedCountry() {
+    @objc private func darkModeEnabled(_ notification: Notification) {
+        darkModeEnable()
+    }
+    
+    @objc private func darkModeDisabled(_ notification: Notification) {
+        darkModeDisable()
+        
+    }
+    
+    func darkModeEnable() {
+        self.tableView.backgroundColor = UIColor(red: 0.341, green: 0.341, blue: 0.341, alpha: 1.0)
+        
+    }
+    
+    func darkModeDisable() {
+        self.tableView.backgroundColor = .white
         
     }
 
 }
 extension LocalVC: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let darkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+        if darkMode {
+            darkModeEnable()
+            cell.backgroundColor = UIColor(red: 0.341, green: 0.341, blue: 0.341, alpha: 1.0)
+            cell.textLabel?.textColor = .white
+        }else {
+            darkModeDisable()
+            cell.backgroundColor = .white
+            cell.textLabel?.textColor = .black
+        }
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return controller?.numberOfRowsCountry() ?? 0
     }
